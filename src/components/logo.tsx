@@ -6,12 +6,11 @@ const Logo = () => {
   const pathname = usePathname();  
   const router = useRouter();  
 
-  // Check if the current route is the Blog page
-  const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us";
+  const isHomePage = pathname === "/";
 
-  // Handle navigation when clicking the logo
   const handleNavigation = () => {
-    router.push("/"); // Navigate to the homepage
+    router.push("/");  
   };
 
   return (
@@ -22,6 +21,13 @@ const Logo = () => {
           alt="Blog Logo"
           width={103}
           height={32}
+        />
+      ) : isHomePage ? (
+        <Image
+          src="/assets/home-logo.svg"
+          alt="Home Logo"
+          width={142.29}
+          height={36}
         />
       ) : (
         <Image

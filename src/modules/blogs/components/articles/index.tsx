@@ -70,7 +70,7 @@ export default function Articles() {
   const totalPages = Math.ceil(articles.length / articlesPerPage);
 
   return (
-    <div className=" bg-[#F1F5FA] py-12">
+    <div className=" bg-[#F1F5FA] py-12  md:px-8 px-4">
       <div className="max-w-[1184px] mx-auto">
         <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (

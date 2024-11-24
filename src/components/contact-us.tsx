@@ -6,10 +6,11 @@ const ContactUs = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us";
+  const isHomePage = pathname === "/";
 
-  const bgColor = isBlogPage ? "bg-[#2243B6]" : "bg-green-600";
-  const textColor = isBlogPage ? "text-[#FFFFFF]" : "text-white";
+  const bgColor = isBlogPage ? "bg-[#2243B6]" : isHomePage ? "bg-[#FC5523]" : "bg-green-600";
+  const textColor = "text-white";
 
   const handleNavigation = () => {
     router.push("/blog");
