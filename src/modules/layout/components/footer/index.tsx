@@ -11,7 +11,7 @@ const Footer = () => {
   const pathname = usePathname();  
 
   const isSolutionPage = pathname === "/solution";  
-  const isBlogPage = pathname === "/blog";  
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
 
   return (
     <div className="bg-dark-100 w-full text-white px-4 md:px-8">

@@ -3,11 +3,11 @@ import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 const Logo = () => {
-  const pathname = usePathname(); // Get the current path
-  const router = useRouter(); // Navigate programmatically
+  const pathname = usePathname();  
+  const router = useRouter();  
 
   // Check if the current route is the Blog page
-  const isBlogPage = pathname === "/blog";
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
 
   // Handle navigation when clicking the logo
   const handleNavigation = () => {

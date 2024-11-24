@@ -6,7 +6,7 @@ const ContactUs = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isBlogPage = pathname === "/blog";
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
 
   const bgColor = isBlogPage ? "bg-[#2243B6]" : "bg-green-600";
   const textColor = isBlogPage ? "text-[#FFFFFF]" : "text-white";

@@ -22,7 +22,7 @@ export function ArticleCard({
 }: ArticleCardProps) {
   return (
     <Link
-      href={href}
+      href="/single-blog"
       className="group block overflow-hidden rounded-lg bg-white"
     >
       <div className="aspect-[16/9] relative overflow-hidden">
