@@ -58,7 +58,7 @@ const CustomerSuccessslides = () => {
   };
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mt-10 lg:block hidden">
       <div className="w-full max-w-[1184px] mx-auto text-center">
         <div className="text-left">
           <div className="border border-primary-300 bg-white rounded-[16px] p-5 md:p-12 flex items-center flex-col lg:flex-row gap-4 md:gap-[72px]">

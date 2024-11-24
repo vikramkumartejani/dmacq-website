@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import { ArticleCard } from "../article-card";
+import { ArticleCard } from "./ArticaleCard";
 
-// This is sample data - replace with your actual data
 const articles = [
   {
     title:
