@@ -6,7 +6,8 @@ interface FeatureProps {
   description: string;
   imageSrc: string;
   altText: string;
-  reverse?: boolean; // Optional prop to control flex-reverse
+  spacing?: string;
+  reverse?: boolean;
 }
 
 const Feature: React.FC<FeatureProps> = ({
@@ -14,13 +15,14 @@ const Feature: React.FC<FeatureProps> = ({
   description,
   imageSrc,
   altText,
+  spacing,
   reverse = false,
 }) => {
   return (
     <div
-      className={`flex items-center justify-between py-[120px] gap-12 ${
+      className={`flex items-center justify-between gap-12 ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-      } flex-col`}
+      } ${spacing ? spacing : "py-[120px]"} flex-col`}
     >
       {/* Illustration */}
       <div className="lg:w-[42%]">
