@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ArticleCard } from "./ArticaleCard";
+import Image from "next/image";
 
 const articles = [
   {
@@ -69,28 +70,33 @@ export default function Articles() {
   const totalPages = Math.ceil(articles.length / articlesPerPage);
 
   return (
-    <div className="min-h-screen bg-[#F1F5FA] py-12 px-4">
-      <div className="max-w-[1280px] mx-auto">
+    <div className=" bg-[#F1F5FA] py-12">
+      <div className="max-w-[1184px] mx-auto">
         <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (
             <ArticleCard key={index} {...article} />
           ))}
         </div>
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center justify-center gap-1.5">
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+            className="cursor-pointer"
           >
-            Previous
+            <Image
+              src="/assets/blogs/left-arrow.svg"
+              alt="left-arrow"
+              width={40}
+              height={40}
+            />
           </button>
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium ${
+              className={`rounded-full bg-[#D8E4FD] w-[40px] h-[40px] text-sm font-medium ${
                 currentPage === page
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-600 text-[#2243B6]"
                   : "text-gray-700 hover:bg-gray-50"
               }`}
             >
@@ -100,9 +106,14 @@ export default function Articles() {
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+            className="cursor-pointer"
           >
-            Next
+            <Image
+              src="/assets/blogs/right-arrow.svg"
+              alt="left-arrow"
+              width={40}
+              height={40}
+            />
           </button>
         </div>
       </div>

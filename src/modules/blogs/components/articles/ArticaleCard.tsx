@@ -23,14 +23,14 @@ export function ArticleCard({
   return (
     <Link
       href={href}
-      className="group block overflow-hidden rounded-lg bg-white transition-all hover:shadow-lg"
+      className="group block overflow-hidden rounded-lg bg-white"
     >
       <div className="aspect-[16/9] relative overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-300 h-[219px] group-hover:scale-105"
+          className="contain"
         />
       </div>
       <div className="p-[24px]">
