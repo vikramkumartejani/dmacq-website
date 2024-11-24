@@ -22,16 +22,20 @@ export default {
         "white-500": "#F5F8FF",
         "white-200": "#FFFFFFCC",
         "white-600": "#FFFFFF99",
+        "white-800": "#FFFFFF99",
+        "white-900": "#FFFFFFE5",
         "green-600": "#167B59",
         "green-700": "#136449",
         "grey-900": "#40566D",
         "dark": '#243547',
+        "blue": '#2243B6',
       },
       borderColor:{
         "gray-light-10": '#E6E6E6',
         "primary-200": '#167B5952',
         "primary-300": '#167B593D',
         "primary-400": '#6C849D2E',
+        "white-700": "#FFFFFFB2",
       },
       backgroundColor:{
         "green-600": "#167B59",
@@ -39,6 +43,7 @@ export default {
         "mint-cream": "#F2FFFB",
         "green-700": "#136449",
         "dark-100": "#0C1927",
+        "white-100": "#FFFFFF1A",
         
       }
     },

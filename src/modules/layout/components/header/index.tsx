@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Logo from "./logo";
-import ContactUs from "./contact-us";
+import Logo from "../../../../components/logo";
+import ContactUs from "../../../../components/contact-us";
 import MenuItems from "./MenuItems";
 import MobileMenu from "./MobileMenu";
 
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="h-[72px] py-[16px] bg-white w-full border border-gray-light-10 lg:px-8 px-4 fixed">
+    <div className="h-[72px] py-[16px] bg-white w-full border border-gray-light-10 lg:px-8 px-4 fixed z-50">
       <div className="w-full max-w-[1184px] mx-auto h-full flex items-center justify-between">
         <div className="flex items-center gap-[48px]">
           <Logo />

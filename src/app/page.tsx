@@ -1,8 +1,11 @@
+import Footer from "@/modules/layout/components/footer";
+import Header from "@/modules/layout/components/header";
 
 export default function Home() {
   return (
     <div>
-      <h1>kfdg</h1>
+      <Header/>
+      <Footer/>
     </div>
   );
 }

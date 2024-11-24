@@ -1,7 +1,15 @@
+'use client'
+import { useState } from "react";
 import Link from "next/link";
 
-const tabsItems = [
-  { name: "Document Managemnt", href: "#", active: true },
+type TabItem = {
+  name: string;
+  href: string;
+  active?: boolean;
+};
+
+const initialTabsItems: TabItem[] = [
+  { name: "Document Management", href: "#", active: true },  
   { name: "Workflows", href: "#" },
   { name: "Forms", href: "#" },
   { name: "Digitalization", href: "#" },
@@ -10,19 +18,32 @@ const tabsItems = [
   { name: "Industry Trends", href: "#" },
 ];
 
-export default function Tabs() {
+export default function Tabs(): JSX.Element {
+  const [tabsItems, setTabsItems] = useState<TabItem[]>(initialTabsItems);
+
+  const handleTabClick = (clickedTab: string) => {
+    setTabsItems((prevTabs) =>
+      prevTabs.map((tab) =>
+        tab.name === clickedTab
+          ? { ...tab, active: true }
+          : { ...tab, active: false }
+      )
+    );
+  };
+
   return (
-    <nav className="border-b border-gray-200">
-      <div className="px-4 md:px-6 lg:px-8">
-        <ul className="flex space-x-8 overflow-x-auto">
+    <nav className="border-b border-[#6C849D2E]">
+      <div>
+        <ul className="flex overflow-x-auto">
           {tabsItems.map((item) => (
             <li key={item.name}>
               <Link
                 href={item.href}
-                className={`inline-flex whitespace-nowrap px-1 py-[9px] border-b-2 text-sm font-medium ${
+                onClick={() => handleTabClick(item.name)}
+                className={`font-bold h-[42px] flex items-center px-4 whitespace-nowrap border-b-2 text-sm ${
                   item.active
                     ? "border-[#2243B6] text-[#2243B6]"
-                    : "border-transparent text-[#40566D] hover:text-gray-700 hover:border-gray-300"
+                    : "border-transparent text-[#40566D] font-medium"
                 }`}
               >
                 {item.name}

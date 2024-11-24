@@ -1,4 +1,4 @@
-import ContactUs from '@/modules/layout/components/header/contact-us'
+import ContactUs from '@/components/contact-us'
 import Image from 'next/image'
 import React from 'react'
 
