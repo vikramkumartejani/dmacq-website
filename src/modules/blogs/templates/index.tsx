@@ -25,12 +25,7 @@ const Blogs = () => {
               </header>
 
               <Tabs />
-
-              <main className="px-4 py-8 md:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto">
-                  <BlogSlider />
-                </div>
-              </main>
+              <BlogSlider />
             </div>
           </div>
           <Articles />

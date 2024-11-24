@@ -3,13 +3,12 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { LuDot } from "react-icons/lu";
 
-// Update Story type to accept either string or JSX.Element for title
 type Slides = {
-  tags: string[]; // Updated to accept an array of strings
+  tags: string[];
   title: string;
   subtitle: string;
   author: string;
-  date: string; // Added date property
+  date: string;
   readTime: string;
   image: string;
 };
@@ -51,26 +50,16 @@ const CustomerSuccessslides = () => {
       readTime: "8 min",
       image: "/assets/blogs/article3.png",
     },
-    // Add more slides here
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    );
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
   return (
-    <div className="w-full ">
-      <div className="w-full max-w-[1280px] mx-auto text-center">
+    <div className="w-full mt-10">
+      <div className="w-full max-w-[1184px] mx-auto text-center">
         <div className="text-left">
           <div className="border border-primary-300 bg-white rounded-[16px] p-5 md:p-12 flex items-center flex-col lg:flex-row gap-4 md:gap-[72px]">
             <div>
@@ -105,7 +94,7 @@ const CustomerSuccessslides = () => {
                   </p>
                 </div>
               </div>
-              <h3 className="pt-4 md:pt-[30.5px] text-primary text-base font-semibold leading-[21.79px]">
+              <h3 className="pt-4 md:pt-[30.5px] text-[#2243B6] text-base font-semibold leading-[21.79px]">
                 Read More
               </h3>
             </div>
@@ -127,8 +116,8 @@ const CustomerSuccessslides = () => {
                   onClick={() => goToSlide(index)}
                   className={`${
                     currentSlide === index
-                      ? "bg-green-600 w-[23px] h-[8px] rounded-full"
-                      : "bg-primary-300 w-[8px] h-[8px] rounded-full"
+                      ? "bg-[#2243B6] w-[23px] h-[8px] rounded-full"
+                      : "bg-[#305EFF3D] w-[8px] h-[8px] rounded-full"
                   }`}
                 />
               ))}
