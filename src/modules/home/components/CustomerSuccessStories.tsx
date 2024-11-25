@@ -20,7 +20,7 @@ const CustomerSuccessStories = () => {
       title: (
         <>
           Our approval processes became{" "}
-          <span className="text-green-600">50% faster</span> after implementing
+          <span className="text-[#FC5523]">50% faster</span> after implementing
           DMS+
         </>
       ),
@@ -61,9 +61,9 @@ const CustomerSuccessStories = () => {
   };
 
   return (
-    <div className="w-full md:px-8 px-4 py-[64px] md:py-[96px] bg-white-500">
+    <div className="w-full md:px-8 px-4 py-[64px] md:py-[96px] bg-[#FFF5F2]">
       <div className="w-full max-w-[1184px] mx-auto text-center">
-        <h3 className="text-green-600 text-base md:text-lg leading-[19.2px] md:leading-[21.6px] font-bold tracking-[4px] uppercase">
+        <h3 className="text-[#CD3609] text-base md:text-lg leading-[19.2px] md:leading-[21.6px] font-bold tracking-[4px] uppercase">
           Customer Success Stories
         </h3>
         <h1 className="text-dark text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43.2px] font-extrabold tracking-[-0.96px] mt-2">
@@ -82,7 +82,7 @@ const CustomerSuccessStories = () => {
             />
             <div>
               <div className="lg:max-w-[623px] w-full mx-auto pb-6 border-b border-primary-400">
-                <h5 className="text-primary-200 text-base font-semibold leading-[24px]">
+                <h5 className="text-[#CD3609] text-base font-semibold leading-[24px]">
                   {stories[currentSlide].industry}
                 </h5>
                 <h3 className="mt-4 text-[24px] md:text-[32px] leading-[28px] md:leading-[40px] font-extrabold text-secondary-100">
@@ -106,8 +106,8 @@ const CustomerSuccessStories = () => {
                   onClick={() => goToSlide(index)}
                   className={`${
                     currentSlide === index
-                      ? "bg-green-600 w-[23px] h-[8px] rounded-full"
-                      : "bg-primary-300 w-[8px] h-[8px] rounded-full"
+                      ? "bg-[#FC5523] w-[23px] h-[8px] rounded-full"
+                      : "bg-[#FC55232E] w-[8px] h-[8px] rounded-full"
                   }`}
                 />
               ))}

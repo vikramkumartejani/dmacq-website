@@ -4,6 +4,9 @@ import AboutUs from '../components/AboutUs'
 import WhyChooseUs from '../components/WhyChooseUs'
 import UnlockingEfficiency from '../components/UnlockingEfficiency'
 import OurProducts from '../components/OurProducts'
+import Awards from '../components/Awards'
+import CustomerSuccessStories from '../components/CustomerSuccessStories'
+import Testimonials from '../components/Testimonials'
 
 const HomePage = () => {
   return (
@@ -13,6 +16,9 @@ const HomePage = () => {
         <WhyChooseUs/>
         <UnlockingEfficiency/>
         <OurProducts/>
+        <Awards/>
+        <CustomerSuccessStories />
+        <Testimonials/>
     </div>
   )
 }
