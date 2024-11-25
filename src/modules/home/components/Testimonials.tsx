@@ -34,37 +34,37 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   const testimonials: Testimonial[] = [
     {
       ratingImage: '/assets/rating.svg',
-      text: 'dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
+      text: '1 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
       profileImage: '/assets/profile.svg',
       name: 'Tushar P.',
       position: 'Managing Director',
     },
     {
       ratingImage: '/assets/rating.svg',
-      text: 'dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
+      text: '2 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
       profileImage: '/assets/profile.svg',
       name: 'Sharad G.',
       position: 'Operation Manager • Bajaj Auto',
     },
     {
       ratingImage: '/assets/rating.svg',
-      text: 'dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
+      text: '3 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
       profileImage: '/assets/profile.svg',
-      name: 'Sumesh A.',
+      name: 'Sharad G.',
       position: 'Operation Manager • Bajaj Auto',
     },
     {
       ratingImage: '/assets/rating.svg',
-      text: 'dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
+      text: '4 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
       profileImage: '/assets/profile.svg',
-      name: 'Sumesh A.',
+      name: 'Sharad G.',
       position: 'Operation Manager • Bajaj Auto',
     },
     {
       ratingImage: '/assets/rating.svg',
-      text: 'dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
+      text: '5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
       profileImage: '/assets/profile.svg',
-      name: 'Sumesh A.',
+      name: 'Sharad G.',
       position: 'Operation Manager • Bajaj Auto',
     },
   ];
@@ -90,7 +90,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({
             spaceBetween={30}
             slidesPerView={3}
             loop={true}
-            autoplay={{ delay: 5000 }}
+            autoplay={{
+              delay: 1000, 
+              disableOnInteraction: true,  
+            }}
             className="testimonial-slider"
             breakpoints={{
               320: {
