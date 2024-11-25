@@ -1,9 +1,92 @@
-import React from 'react'
+'use client'
+import Image from 'next/image';
+import React, { useState } from 'react';
 
-const FAQ = () => {
-  return (
-    <div>FAQ</div>
-  )
+interface FAQItem {
+  question: string;
+  answer?: string; // Optional since some questions don't have answers in the initial state
 }
 
-export default FAQ
+const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqItems: FAQItem[] = [
+    {
+      question: 'What is a Document Management System (DMS)?',
+      answer:
+        'A Document Management System (DMS) is software designed to store, manage, and track digital documents, making it easier to organize, access, and secure your files.',
+    },
+    {
+      question: 'How does DMS improve document organization?',
+      answer: 'DMS improves document organization by categorizing, tagging, and enabling advanced search capabilities.',
+    },
+    {
+      question: 'Is my data secure in the DMS?',
+      answer: 'Yes, DMS systems employ encryption and role-based access controls to ensure data security.',
+    },
+    {
+      question: 'Can I access DMS from any device?',
+      answer: 'Yes, most modern DMS solutions are cloud-based and can be accessed from any device with an internet connection.',
+    },
+    {
+      question: 'What file types are supported by DMS?',
+      answer: 'DMS supports various file types, including PDFs, Word documents, Excel spreadsheets, images, and more.',
+    },
+    {
+      question: 'Does DMS have search functionality?',
+      answer: 'Yes, DMS includes advanced search functionality to quickly locate documents based on metadata, tags, or content.',
+    },
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="w-full py-[120px]">
+      <div className="max-w-[1184px] w-full mx-auto">
+        <h3 className="text-center text-[#305EFF] text-[16px] leading-[19.2px] tracking-[4px] font-bold uppercase mb-2">
+          FAQS
+        </h3>
+        <h1 className="text-center text-[#243547] text-[36px] leading-[43px] tracking-[-0.96px] font-extrabold">
+          Frequently Asked Questions
+        </h1>
+
+        {/* FAQ Section */}
+        <div className="mt-6">
+          {faqItems.map((item, index) => (
+            <div key={index} className="p-8 border-b border-[#6C849D2E]">
+              <div
+                className="flex items-center justify-between cursor-pointer"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h2 className="text-[#192839] text-[18px] leading-[28px] font-bold">
+                  {item.question}
+                </h2>
+                <Image
+                  src={`/assets/dmacq/${openIndex === index ? 'close' : 'open'}.svg`}
+                  alt={openIndex === index ? 'close' : 'open'}
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === index ? 'max-h-[200px]' : 'max-h-0'
+                }`}
+              >
+                {item.answer && (
+                  <p className="mt-2 text-[#40566D] text-[16px] leading-[24px] font-medium max-w-[1072px]">
+                    {item.answer}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FAQ;
