@@ -1,8 +1,32 @@
-'use client'
+"use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 
-const successStories = [
+interface Stat {
+  percentage: string;
+  description: string;
+}
+
+interface Story {
+  id: number;
+  company: string;
+  logo: string;
+  testimonial: string;
+  name: string;
+  designation: string;
+  stats: Stat[];
+  storyLink: string;
+}
+
+interface SuccessStoriesProps {
+  customTitle: string;
+  bgColor: string;
+  textColor: string;
+  mainTitleColor: string;
+}
+
+const successStories: Story[] = [
   {
     id: 1,
     company: "Bajaj Auto",
@@ -50,8 +74,13 @@ const successStories = [
   },
 ];
 
-const SuccessStories = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const SuccessStories: React.FC<SuccessStoriesProps> = ({
+  customTitle,
+  bgColor,
+  textColor,
+  mainTitleColor,
+}) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
@@ -59,21 +88,31 @@ const SuccessStories = () => {
 
   const handlePrevious = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + successStories.length) % successStories.length
+      (prevIndex) =>
+        (prevIndex - 1 + successStories.length) % successStories.length
     );
   };
 
   const currentStory = successStories[currentIndex];
 
   return (
-    <div className="w-full bg-[#D8E4FD] py-16 md:py-[120px] h-full lg:px-8 px-4">
+    <div
+      className={`w-full py-16 md:py-[120px] h-full lg:px-8 px-4`}
+      style={{ backgroundColor: bgColor }}
+    >
       <div className="w-full max-w-[1184px] mx-auto">
         <div>
-          <h4 className="mb-2 text-[#2950DA] text-[16px] leading-[19.2px] tracking-[4px] font-semibold text-center uppercase">
+          <h4
+            style={{ color: mainTitleColor }}
+            className="mb-2 text-[16px] leading-[19.2px] tracking-[4px] font-semibold text-center uppercase"
+          >
             Success Stories
           </h4>
-          <h1 className="text-center text-[#192839] text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43px] tracking-[-0.96px] font-extrabold">
-            After 12 months, DMS + customers see
+          <h1
+            style={{ color: textColor }}
+            className="text-center text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43px] tracking-[-0.96px] font-extrabold"
+          >
+            {customTitle}
           </h1>
 
           <div className="mt-16 bg-white rounded-lg flex justify-between min-h-full">

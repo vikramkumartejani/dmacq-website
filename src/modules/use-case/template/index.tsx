@@ -13,7 +13,12 @@ const UseCase = () => {
         <Hero/>
         <OurDMSSolves/>
         <InnovativeFeatures/>
-        <SuccessStories/>
+        <SuccessStories
+            customTitle="After 12 months, DMS + customers see"
+            bgColor="#D8E4FD"
+            mainTitleColor="#2950DA"
+            textColor="#0C1927"
+        />
         <Footer/>
     </div>
   )
