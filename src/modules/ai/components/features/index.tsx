@@ -1,25 +1,17 @@
-import Image from "next/image";
 import Feature from "../feature";
 
 export default function Features() {
   return (
-    <section className="min-h-screen bg-grid-white/[0.02] relative flex items-center justify-center py-20 overflow-hidden">
+    <section className="min-h-screen bg-grid-white/[0.02] relative flex items-center justify-center overflow-hidden">
       <div className="">
-        <div className="text-center mb-[4px]">
-          <h2 className="text-[#75A3FF] text-[18px] font-[600] tracking-[4px]">
-            FEATURES
-          </h2>
-          <h3 className="text-white text-[36px] font-[800]">
-            AI-Powered Features
-          </h3>
-        </div>
-
         <Feature
           title="Auto-Classification"
           description="AI can automatically classify documents based on their content, eliminating the need for manual sorting. This feature scans the document's text, metadata."
           imageSrc="/assets/ai/auto-classification.png"
           altText="auto classification"
           spacing="py-[60px]"
+          bgImageSrc="/assets/ai/grid-2.png"
+          heading={true}
         />
         <Feature
           title="Optical Character Recognition (OCR)"
@@ -27,12 +19,14 @@ export default function Features() {
           imageSrc="/assets/ai/ocr.png"
           altText="data extraction"
           reverse={true}
+          bgImageSrc="/assets/ai/grid-3.png"
         />
         <Feature
           title="Document Data Extraction"
           description="AI can extract specific data fields from documents, such as names, dates, or invoice totals. This process uses machine learning to identify patterns in document formats and pull out essential"
           imageSrc="/assets/ai/data-extraction.png"
           altText="data extraction"
+          bgImageSrc="/assets/ai/grid-4.png"
         />
         <Feature
           title="Intelligent Search"
@@ -40,6 +34,7 @@ export default function Features() {
           imageSrc="/assets/ai/intelligent search.png"
           altText="Intelligent Search"
           reverse={true}
+          bgImageSrc="/assets/ai/grid-5.png"
         />
       </div>
     </section>
