@@ -44,6 +44,7 @@ export default {
         "green-700": "#136449",
         "dark-100": "#0C1927",
         "white-100": "#FFFFFF1A",
+        "brown": "#FFFFFF1A",
         
       }
     },
