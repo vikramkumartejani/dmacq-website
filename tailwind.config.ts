@@ -45,8 +45,16 @@ export default {
         "dark-100": "#0C1927",
         "white-100": "#FFFFFF1A",
         "brown": "#FFFFFF1A",
-        
-      }
+      },
+      screens: {
+        "2xl": "1536px", 
+        xl: "1280px",  
+        lg: "1024px",  
+        mlg: "930px",  
+        md: "768px",  
+        sm: "640px",  
+        xs: "480px",  
+      },
     },
   },
   plugins: [],

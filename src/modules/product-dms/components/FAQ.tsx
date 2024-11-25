@@ -57,7 +57,7 @@ const FAQ: React.FC = () => {
           {faqItems.map((item, index) => (
             <div key={index} className="px-2 py-6 md:p-8 border-b border-[#6C849D2E]">
               <div
-                className="flex justify-between cursor-pointer"
+                className="flex justify-between items-start cursor-pointer gap-2"
                 onClick={() => toggleFAQ(index)}
               >
                 <h2 className="text-[#192839] text-[16px] md:text-[18px] leading-[20px] md:leading-[28px] font-bold">
