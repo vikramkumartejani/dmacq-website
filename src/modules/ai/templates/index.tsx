@@ -10,16 +10,10 @@ const AI = () => {
     <>
       <Header />
       <div className="pt-[72px] bg-[#060918]">
-        <div className="pt-[64px]">
-          <div className="lg:px-8 px-4">
-            <div className="max-w-[1184px] mx-auto">
-              <Hero />
-              <Features />
-              <AIPowered />
-            </div>
-          </div>
-          <Footer />
-        </div>
+        <Hero />
+        <Features />
+        <AIPowered />
+        <Footer />
       </div>
     </>
   );
