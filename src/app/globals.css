@@ -13,12 +13,19 @@
   font-family: "Noto Sans", serif ;
 }
 
-/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for Firefox */
 .scrollbar-none {
   scrollbar-width: none;
+}
+
+
+.bg-image{
+background-repeat: no-repeat;
+backdrop-filter: blur(1px);
+object-position: center;
+mix-blend-mode: luminosity
+
 }
