@@ -43,24 +43,24 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="w-full py-[120px]">
+    <div className="w-full lg:py-[120px] lg:px-8 px-4 py-16">
       <div className="max-w-[1184px] w-full mx-auto">
-        <h3 className="text-center text-[#305EFF] text-[16px] leading-[19.2px] tracking-[4px] font-bold uppercase mb-2">
+        <h3 className="text-center text-[#2243B6] text-[16px] leading-[19.2px] tracking-[4px] font-bold uppercase mb-2">
           FAQS
         </h3>
-        <h1 className="text-center text-[#243547] text-[36px] leading-[43px] tracking-[-0.96px] font-extrabold">
+        <h1 className="text-center text-[#243547] text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43px] tracking-[-0.96px] font-extrabold">
           Frequently Asked Questions
         </h1>
 
         {/* FAQ Section */}
         <div className="mt-6">
           {faqItems.map((item, index) => (
-            <div key={index} className="p-8 border-b border-[#6C849D2E]">
+            <div key={index} className="px-2 py-6 md:p-8 border-b border-[#6C849D2E]">
               <div
-                className="flex items-center justify-between cursor-pointer"
+                className="flex justify-between cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <h2 className="text-[#192839] text-[18px] leading-[28px] font-bold">
+                <h2 className="text-[#192839] text-[16px] md:text-[18px] leading-[20px] md:leading-[28px] font-bold">
                   {item.question}
                 </h2>
                 <Image

@@ -15,7 +15,7 @@ const ProductDMS = () => {
     <div>
       <Header />
       <Hero />
-      <InnovativeFeatures/>
+      {/* <InnovativeFeatures/> */}
       <DocumentManagement />
       <VersatileApplications />
       <SuccessStories
@@ -31,7 +31,7 @@ const ProductDMS = () => {
         titleText="Testimonials"
         headingText="Hear What Our Clients Have to Say"
       />
-      <StarterPlan />
+      {/* <StarterPlan /> */}
       <FAQ />
       <Footer />
     </div>
