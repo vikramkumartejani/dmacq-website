@@ -1,23 +1,104 @@
-import React from 'react'
+import ContactUs from "@/components/contact-us";
+import Image from "next/image";
+import React from "react";
+import Partner from "./Partner";
+
+const products = [
+  {
+    icon: "/assets/dms.svg",
+    name: "DMS +",
+    description: "Most Innovative Document Management Software",
+  },
+  {
+    icon: "/assets/forms.svg",
+    name: "FORMS +",
+    description: "#1 Form Builder for Businesses",
+  },
+  {
+    icon: "/assets/flow.svg",
+    name: "FLOW +",
+    description: "Most Flexible yet Powerful Workflow Management",
+  },
+];
 
 const Hero = () => {
   return (
-    <div className='bg-[#FFF5F2] w-full'>
-        <div className='max-w-[1184px] mx-auto w-full pt-[72px] pb-[64px]'>
-            <div className='flex items-center justify-between gap-4'>
-                <div className='max-w-[639px]'>
-                    <h1>Unlock Efficiency, Powered by Innovation</h1>
-                </div>
-                <div className='bg-white rounded-lg py-3 px-4 w-[436px]' style={{boxShadow: '2px 4px 48.8px 0px #471F021A'}}>
-                    <h1 className='h-[32px] flex items-center px-4 text-[#58728D] text-[12px] font-bold leading-[16.34px]'>Our Products</h1>
-                    <div className='flex flex-col'>
-
-                    </div>
-                </div>
+    <div className="bg-[#FFF5F2] w-full lg:px-8 px-4">
+      <div className="max-w-[1184px] mx-auto w-full pt-[72px]">
+        <div>
+          <div className="flex items-center justify-between gap-4  pb-[64px]">
+            <div className="max-w-[639px]">
+              <h1 className="text-[48px] leading-[57.6px] max-w-[639px] font-black tracking-[-0.95px]">
+                Unlock Efficiency, Powered by{" "}
+                <span className="text-[#FC5523]">Innovation</span>
+              </h1>
+              <p className="mb-10 text-[#2F4256] max-w-[639px] text-[18px] leading-[28.8px] font-normal mt-3">
+                Transform your operations with a cutting-edge software suite
+                designed to streamline your business. Built for scalability,
+                trusted for its reliability and backed by a team committed to
+                your success.{" "}
+              </p>
+              <div className="h-[48px] bg-[#FC5523] w-[117px] flex items-center justify-center rounded-lg">
+                <ContactUs />
+              </div>
             </div>
-        </div>
-    </div>
-  )
-}
+            <div
+              className="bg-white rounded-lg py-3 px-4 w-[436px]"
+              style={{ boxShadow: "2px 4px 48.8px 0px #471F021A" }}
+            >
+              <h1 className="h-[32px] flex items-center px-4 text-[#58728D] text-[12px] font-bold leading-[16.34px]">
+                Our Products
+              </h1>
+              <div className="flex flex-col">
+                {products.map((product, index) => (
+                  <div
+                    key={index}
+                    className={`${
+                      index !== products.length - 1
+                        ? "border-b border-[#6C849D2E]"
+                        : ""
+                    } py-5 px-4 flex items-center gap-4 justify-between`}
+                  >
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <Image
+                          src={product.icon}
+                          alt={product.name.toLowerCase()}
+                          width={32}
+                          height={32}
+                        />
+                        <div>
+                          <h4 className="text-[#2F4256] text-[9.83px] font-normal leading-[11px]">
+                            dMACQ
+                          </h4>
+                          <h1 className="text-[#192839] text-[20px] font-black leading-[18px] tracking-[-0.5px]">
+                            {product.name}
+                          </h1>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-[#2F4256] text-[12px] leading-[16.34px] font-normal">
+                        {product.description}
+                      </p>
+                    </div>
+                    <button>
+                      <Image
+                        src="/assets/arrow.svg"
+                        alt="arrow"
+                        width={24}
+                        height={24}
+                      />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-export default Hero
+          <Partner/>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
