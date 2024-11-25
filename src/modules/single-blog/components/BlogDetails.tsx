@@ -102,8 +102,8 @@ const BlogDetails = () => {
             </div>
 
             {/* Real-time Document Access */}
-            <div id="realtimeDocumentaccess">
-              <h1 className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
+            <div  >
+              <h1 id="realtimeDocumentaccess" className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
                 2. Real-time Document Access
               </h1>
               <p className="text-secondary text-[16px] md:text-[18px] leading-[28.8px] md:leading-[32.4px] font-normal">
