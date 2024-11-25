@@ -12,10 +12,16 @@ import TransformYourBusiness from "./TransformYourBusiness";
 const Footer = () => {
   const pathname = usePathname();
 
-  const bgColor = pathname === "/" ? "bg-[#240A02]" : "bg-dark-100";
+  const bgColor = pathname === "/ai" 
+  ? "bg-[#050816]" 
+  : pathname === "/" 
+  ? "bg-[#240A02]" 
+  : "bg-dark-100";
+
+  
 
   const isSolutionPage = pathname === "/solution";
-  const isContactUsPage = pathname === "/contact-us";
+  const isContactUsPage = pathname === "/contact-us" || pathname === "/ai";
   const isHomePage = pathname === "/";
   const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
 

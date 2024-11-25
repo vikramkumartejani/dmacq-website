@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "../../../../components/logo";
 import ContactUs from "../../../../components/contact-us";
 import MenuItems from "./MenuItems";
@@ -7,13 +8,18 @@ import MobileMenu from "./MobileMenu";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname(); // Get the current pathname
 
   const toggleMenu = (): void => {
     setMenuOpen(!menuOpen);
   };
 
+  // Set conditional background color
+  const bgColor = pathname === "/ai" ? "bg-transparent" : "bg-white";
+  const border = pathname === "/ai" ? "border-none" : "border";
+
   return (
-    <div className="h-[72px] py-[16px] bg-white w-full border border-gray-light-10 lg:px-8 px-4 fixed z-50">
+    <div className={`h-[72px] py-[16px] ${bgColor} ${border} w-full border border-gray-light-10 lg:px-8 px-4 fixed z-50`}>
       <div className="w-full max-w-[1184px] mx-auto h-full flex items-center justify-between">
         <div className="flex items-center gap-[48px]">
           <Logo />

@@ -8,6 +8,7 @@ const Logo = () => {
 
   const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us";
   const isHomePage = pathname === "/";
+  const isAiPage = pathname === "/ai";
 
   const handleNavigation = () => {
     router.push("/");  
@@ -28,6 +29,13 @@ const Logo = () => {
           alt="Home Logo"
           width={142.29}
           height={36}
+        />
+      ) : isAiPage ? (
+        <Image
+          src="/assets/ai-logo.svg"
+          alt="Home Logo"
+          width={102.22}
+          height={32}
         />
       ) : (
         <Image
