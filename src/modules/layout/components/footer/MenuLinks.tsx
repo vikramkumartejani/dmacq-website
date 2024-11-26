@@ -83,7 +83,6 @@ const MenuLinks: React.FC = () => {
 
   const titleColor = colorMapping[pathname] || "text-primary-400";
 
-  // Determine which social links to show
   const activeSocialLinks = pathname === "/" ? socialLinks1 : socialLinks;
 
   const toggleMenu = (index: number) => {

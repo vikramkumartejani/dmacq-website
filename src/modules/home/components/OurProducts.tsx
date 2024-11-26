@@ -18,23 +18,14 @@ const OurProducts = () => {
           <div className="bg-[#F5F8FF] border border-[#305EFF2E] rounded-lg flex items-end lg:items-center lg:flex-row flex-col justify-between">
             <div className="pl-6 lg:pl-10 lg:pt-0 pt-6 pr-6 lg:pr-0 lg:max-w-[508px]">
               <div>
-                <div className="flex items-center gap-1.5">
-                  <Image
-                    src="/assets/dms.svg"
-                    alt="forms"
-                    width={52}
-                    draggable='false'
-                    height={52}
-                  />
-                  <div>
-                    <h4 className="text-[#2F4256] text-[16px] font-normal leading-[18px]">
-                      dMACQ
-                    </h4>
-                    <h1 className="text-[#192839] text-[32px] font-black leading-[30px] tracking-[-0.81px]">
-                      DMS +
-                    </h1>
-                  </div>
-                </div>
+                <Image
+                  src="/assets/dmacq/dms-logo.svg"
+                  alt="forms"
+                  draggable="false"
+                  width={166}
+                  height={52}
+                />
+
                 <p className="mt-6 text-[#243547] text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] font-medium">
                   DMS+ simplifies document management, allowing you to securely
                   store files, organize for quick retrieval and collaborate
@@ -48,10 +39,10 @@ const OurProducts = () => {
             </div>
 
             <Image
-              src="/assets/product1.svg"
+              src="/assets/dmacq/banner.svg"
               alt="product1"
               width={660}
-              draggable='false'
+              draggable="false"
               className="flex items-end justify-center"
               height={500}
             />
@@ -64,7 +55,7 @@ const OurProducts = () => {
                   <Image
                     src="/assets/forms-logo.svg"
                     alt="forms"
-                    draggable='false'
+                    draggable="false"
                     width={199.88}
                     height={52}
                   />
@@ -81,18 +72,18 @@ const OurProducts = () => {
 
               <div className="w-full flex justify-end">
                 <Image
-                  src="/assets/product2.svg"
+                  src="/assets/dmacq/banner1.svg"
                   alt="product"
-                  draggable='false'
+                  draggable="false"
                   width={590}
                   height={500}
                   className="lg:block hidden"
                 />
                 <Image
-                  src="/assets/mobile2.svg"
+                  src="/assets/dmacq/banner3.svg"
                   alt="product"
                   width={590}
-                  draggable='false'
+                  draggable="false"
                   height={500}
                   className="block lg:hidden"
                 />
@@ -101,23 +92,13 @@ const OurProducts = () => {
 
             <div className="w-full bg-[#F2FFFB] border border-[#167B592E] rounded-lg pt-6 lg:pt-10">
               <div className="px-6 lg:px-10">
-                <div className="flex items-center gap-1.5">
-                  <Image
-                    src="/assets/flow.svg"
-                    alt="forms"
-                    draggable='false'
-                    width={52}
-                    height={52}
-                  />
-                  <div>
-                    <h4 className="text-[#2F4256] text-[16px] font-normal leading-[18px]">
-                      dMACQ
-                    </h4>
-                    <h1 className="text-[#192839] text-[32px] font-black leading-[30px] tracking-[-0.81px]">
-                      FORMS +
-                    </h1>
-                  </div>
-                </div>
+                <Image
+                  src="/assets/dmacq/flow-logo.svg"
+                  alt="forms"
+                  draggable="false"
+                  width={187}
+                  height={52}
+                />
                 <p className="mt-4 text-[#2F4256] text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] font-medium">
                   Forms+ streamlines data collection, minimizes errors, and
                   automates complex processes to significantly enhance overall
@@ -130,18 +111,18 @@ const OurProducts = () => {
 
               <div className="w-full flex justify-end">
                 <Image
-                  src="/assets/product3.svg"
+                  src="/assets/dmacq/banner2.svg"
                   alt="product"
                   width={590}
                   height={500}
-                  draggable='false'
+                  draggable="false"
                   className="lg:block hidden"
                 />
                 <Image
                   src="/assets/mobile3.svg"
                   alt="product"
                   width={590}
-                  draggable='false'
+                  draggable="false"
                   height={500}
                   className="block lg:hidden"
                 />

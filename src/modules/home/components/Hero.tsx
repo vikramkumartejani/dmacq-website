@@ -3,27 +3,39 @@ import Image from "next/image";
 import React from "react";
 import Partner from "./Partner";
 
-const products = [
+interface Product {
+  icon: string;
+  name: string;
+  description: string;
+  width: string;
+  height: string;
+}
+
+const products: Product[] = [
   {
     icon: "/assets/dmacq-dms-logo.svg",
     name: "DMS +",
     description: "Most Innovative Document Management Software",
     width: "102px",
-    height: "32px"
+    height: "32px",
   },
   {
     icon: "/assets/dmacq-form-logo.svg",
+    width: "123px",
+    height: "32px",
     name: "FORMS +",
     description: "#1 Form Builder for Businesses",
   },
   {
     icon: "/assets/dmacq-flow.svg",
+    width: "115px",
+    height: "32px",
     name: "FLOW +",
     description: "Most Flexible yet Powerful Workflow Management",
   },
 ];
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <div className="bg-[#FFF5F2] w-full lg:px-8 px-4">
       <div className="max-w-[1184px] mx-auto w-full pt-[64px] lg:pt-[72px]">
@@ -66,12 +78,11 @@ const Hero = () => {
                       <div className="flex items-center gap-1.5">
                         <Image
                           src={product.icon}
-                          draggable='false'
+                          draggable="false"
                           alt={product.name.toLowerCase()}
-                          width={102}
-                          height={32}
+                          width={parseInt(product.width)}
+                          height={parseInt(product.height)}
                         />
-                       
                       </div>
                       <p className="mt-3 text-[#2F4256] text-[12px] leading-[16.34px] font-normal line-clamp-1">
                         {product.description}
@@ -82,7 +93,7 @@ const Hero = () => {
                         src="/assets/arrow.svg"
                         alt="arrow"
                         width={24}
-                        draggable='false'
+                        draggable="false"
                         height={24}
                       />
                     </button>
@@ -92,7 +103,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <Partner/>
+          <Partner />
         </div>
       </div>
     </div>
