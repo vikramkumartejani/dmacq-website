@@ -5,6 +5,8 @@ import { FaChevronDown } from "react-icons/fa"; // Importing the down arrow icon
 import ProductMenuOpen from "./ProductMenuOpen";
 import ResourcesMenuOpen from "./ResourcesMenuOpen";
 import SolutionsMenuOpen from "./SolutionsMenuOpen";
+import Link from "next/link";
+import Image from "next/image";
 
 type MenuItem = {
   label: string;
@@ -46,7 +48,19 @@ const products: Product[] = [
   },
 ];
 
-const MenuItems = () => {
+// Color mapping for active and inactive states for each route
+const routeColors: { [key: string]: { active: string; inactive: string; hover: string } } = {
+  "/": { active: "text-[#F2400A]", inactive: "text-gray-900", hover: "hover:text-[#F2400A]" },
+  "/product-dms": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
+  "/solution": { active: "text-green-600", inactive: "text-gray-900", hover: "hover:text-green-600" },
+  "/ai": { active: "text-[#75A3FF]", inactive: "text-white", hover: "hover:text-[#75A3FF]" },
+  "/single-blog": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#75A3FF]" },
+  "/blog": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#75A3FF]" },
+  "/contact-us": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
+  "/usecase": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
+};
+
+const MenuItems: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
@@ -57,10 +71,7 @@ const MenuItems = () => {
   const productMenuRef = useRef<HTMLDivElement>(null);
   const solutionsMenuRef = useRef<HTMLDivElement>(null);
 
-  const menuItems: MenuItem[] = [
-    { label: "Home", href: "/" },
-    { label: "dMACQ AI", href: "/dmacq-ai" },
-  ];
+  const menuItems: MenuItem[] = [{ label: "Home", href: "/" }];
 
   const handleNavigation = (href: string) => {
     router.push(href);
@@ -95,6 +106,13 @@ const MenuItems = () => {
     };
   }, []);
 
+  // Get the colors for the current route
+  const currentColors = routeColors[pathname] || {
+    active: "text-gray-900",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#F2400A]",
+  };
+
   return (
     <div className="flex items-center gap-4">
       {menuItems.map((item) => {
@@ -105,10 +123,10 @@ const MenuItems = () => {
           <div key={item.href} className="px-[11px] h-[40px] flex items-center">
             <button
               onClick={() => handleNavigation(item.href)}
-              className={`text-base leading-[21.79px] ${
+              className={`text-[16px] leading-[21.79px] ${
                 isActive
-                  ? "text-green-600 font-black"
-                  : "text-gray-900 font-normal hover:text-green-600"
+                  ? `${currentColors.active} font-semibold`
+                  : `${currentColors.inactive} font-medium ${currentColors.hover}`
               }`}
             >
               {item.label}
@@ -116,7 +134,22 @@ const MenuItems = () => {
           </div>
         );
       })}
+      <div className="relative px-[11px] h-[40px] flex items-center">
+  <Link
+    href="/ai"
+    className={`text-[16px] leading-[21.79px] flex items-center font-medium gap-2 ${
+      pathname === "/ai" || pathname.startsWith("/ai") // Check if the current path is `/ai`
+        ? `${currentColors.active} font-semibold`
+        : `${currentColors.inactive} font-medium ${currentColors.hover}`
+    }`}
+  >
+    <Image src="/assets/star.svg" alt="star" width={24} height={24} />
+    dMACQ AI
+  </Link>
+</div>
 
+
+      {/* Product Menu */}
       <div
         className="relative px-[11px] h-[40px] flex items-center"
         ref={productMenuRef}
@@ -128,14 +161,14 @@ const MenuItems = () => {
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
             pathname.startsWith("/product")
-              ? "text-[#F2400A] font-black"
-              : "text-gray-900 font-normal hover:text-[#F2400A]"
+              ? `${currentColors.active} font-semibold`
+              : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}
         >
           Product
           <FaChevronDown
-            className={`transition-transform duration-200   mt-1 ${
-              isProductMenuOpen ? "rotate-180 " : " "
+            className={`transition-transform duration-200 text-[16px] mt-1 ${
+              isProductMenuOpen ? "rotate-180 " : ""
             }`}
           />
         </button>
@@ -154,13 +187,13 @@ const MenuItems = () => {
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
             pathname.startsWith("/solution")
-              ? "text-[#F2400A] font-black"
-              : "text-gray-900 font-normal hover:text-[#F2400A]"
+              ? `${currentColors.active} font-semibold`
+              : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}
         >
           Solutions
           <FaChevronDown
-            className={`transition-transform duration-200   mt-1${
+            className={`transition-transform duration-200 text-[16px] mt-1 ${
               isSolutionsMenuOpen ? "rotate-180 " : ""
             }`}
           />
@@ -182,21 +215,19 @@ const MenuItems = () => {
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
             pathname.startsWith("/resources")
-              ? "text-[#F2400A] font-black"
-              : "text-gray-900 font-normal hover:text-[#F2400A]"
+              ? `${currentColors.active} font-semibold`
+              : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}
         >
           Resources
           <FaChevronDown
-            className={`transition-transform duration-200   mt-1 ${
+            className={`transition-transform duration-200 text-[16px] mt-1 ${
               isResourcesMenuOpen ? "rotate-180" : ""
             }`}
           />
         </button>
         {isResourcesMenuOpen && <ResourcesMenuOpen />}
       </div>
-
-      {/* Product Menu */}
     </div>
   );
 };
