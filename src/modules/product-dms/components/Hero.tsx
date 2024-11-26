@@ -59,6 +59,41 @@ const Hero = () => {
       width: 104,
       height: 41,
     },
+    {
+      src: "/assets/dmacq/logo1.svg",
+      width: 138,
+      height: 27,
+    },
+    {
+      src: "/assets/dmacq/logo2.svg",
+      width: 134,
+      height: 27,
+    },
+    {
+      src: "/assets/dmacq/logo3.svg",
+      width: 59,
+      height: 27,
+    },
+    {
+      src: "/assets/dmacq/logo4.svg",
+      width: 107,
+      height: 27,
+    },
+    {
+      src: "/assets/dmacq/logo7.svg",
+      width: 97,
+      height: 34,
+    },
+    {
+      src: "/assets/dmacq/logo5.svg",
+      width: 122,
+      height: 36,
+    },
+    {
+      src: "/assets/dmacq/logo6.svg",
+      width: 104,
+      height: 41,
+    },
   ];
 
   return (
@@ -120,16 +155,18 @@ const Hero = () => {
             300+ customers in over 10+ countries grow their businesses with
             dMACQ’s
           </h3>
-          <div className="mt-10 mb-10 lg:mb-0 flex items-center justify-between overflow-x-auto scrollbar-none gap-10 h-[60px]">
-            {logos.map((logo, index) => (
-              <Image
-                key={index}
-                src={logo.src}
-                alt={`logo${index + 1}`}
-                width={logo.width}
-                height={logo.height}
-              />
-            ))}
+          <div className="mt-10 mb-10 lg:mb-0 relative overflow-hidden">
+            <div className="partner-marquee flex animate-marquee gap-10">
+              {logos.map((logo, index) => (
+                <Image
+                  key={index}
+                  src={logo.src}
+                  alt={`logo${index + 1}`}
+                  width={logo.width}
+                  height={logo.height}
+                />
+              ))}
+            </div>
           </div>
           <div className="grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (

@@ -24,6 +24,15 @@ const brands = [
   { src: "/assets/contactus/brand-two.svg", alt: "brand-two", width: 107, height: 18 },
   { src: "/assets/contactus/brand-three.svg", alt: "brand-three", width: 47, height: 31 },
   { src: "/assets/contactus/brand-four.svg", alt: "brand-four", width: 85.61, height: 25 },
+  { src: "/assets/contactus/brand-one.svg", alt: "brand-one", width: 110, height: 21 },
+  { src: "/assets/contactus/brand-two.svg", alt: "brand-two", width: 107, height: 18 },
+  { src: "/assets/contactus/brand-three.svg", alt: "brand-three", width: 47, height: 31 },
+  { src: "/assets/contactus/brand-four.svg", alt: "brand-four", width: 85.61, height: 25 },
+  { src: "/assets/contactus/brand-one.svg", alt: "brand-one", width: 110, height: 21 },
+  { src: "/assets/contactus/brand-two.svg", alt: "brand-two", width: 107, height: 18 },
+  { src: "/assets/contactus/brand-three.svg", alt: "brand-three", width: 47, height: 31 },
+  { src: "/assets/contactus/brand-four.svg", alt: "brand-four", width: 85.61, height: 25 },
+
 ];
 
 const ContactContent: React.FC = () => {
@@ -56,16 +65,18 @@ const ContactContent: React.FC = () => {
         <h3 className="text-[#6C849D] text-[14px] leading-[16.8px] font-medium">
           TRUSTED BY TOP BRANDS
         </h3>
-        <div className="flex items-center justify-between md:gap-3 max-w-[567px] h-[48px] mt-8 overflow-auto gap-10">
-          {brands.map((brand, index) => (
-            <Image
-              key={index}
-              src={brand.src}
-              alt={brand.alt}
-              width={brand.width}
-              height={brand.height}
-            />
-          ))}
+        <div className="relative mt-8 overflow-hidden">
+          <div className="partner-marquee flex gap-10 animate-marquee">
+            {brands.map((brand, index) => (
+              <Image
+                key={index}
+                src={brand.src}
+                alt={brand.alt}
+                width={brand.width}
+                height={brand.height}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -73,4 +84,3 @@ const ContactContent: React.FC = () => {
 };
 
 export default ContactContent;
-

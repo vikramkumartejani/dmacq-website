@@ -5,15 +5,18 @@ const RevolutionizingDepartmental = () => {
   return (
     <div className="w-full h-full">
       <div className="flex lg:flex-row flex-col items-center h-full bg-dark-100 lg:pr-10">
-        <Image
-          src="/assets/solution/revolutionizing-departmental.svg"
+        <div className="min-h-full">
+
+        <img
+          src="/assets/solution/revolutionizing-departmental.png"
           draggable="false"
           alt="Revolutionizing Departmental"
           width={626}
-          height={512}
-          className="w-full"
+          
+          className="md:min-w-[488px] xl:min-w-[626px]"
         />
-        <div className="bg-dark-100  text-white px-4 lg:ml-[32px] xl:ml-[128px] lg:max-w-[558px] pb-[48px] pt-[32px] md:py-[82px]">
+          </div>
+        <div className="bg-dark-100  text-white px-4 lg:ml-[32px] xl:ml-[128px] lg:max-w-[558px] pb-[48px] pt-[32px] xl:py-[82px]">
           <h1 className="text-[28px] md:text-[36px] font-black leading-[32px] md:leading-[41.4px] tracking-[-0.8px]">
             Revolutionizing Departmental Collaboration with Effortless Document
             Flow
