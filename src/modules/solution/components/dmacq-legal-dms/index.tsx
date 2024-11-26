@@ -14,7 +14,7 @@ const DMACQLegalDMS: React.FC = () => {
   const useCases: UseCase[] = [
     {
       image: "/assets/solution/admission-processes.svg",
-      title: "Admission Processes",
+      title: "Admission Processes kdfgnslfk",
       description:
         "The DMS software provides a centralized location for all contracts, making it easy to store, access, and manage them.",
       link: "/admission-processes",
@@ -64,7 +64,7 @@ const DMACQLegalDMS: React.FC = () => {
                 className="rounded-t-lg w-full h-[224px] object-cover"
               />
               <div className="p-6 flex flex-col items-start flex-grow">
-                <h2 className="text-dark font-bold md:font-extrabold text-[20px] md:text-[24px] leading-[24px] md:leading-[28.8px] tracking-[-0.95px]">
+                <h2 className="text-dark font-bold text-left md:font-extrabold text-[20px] md:text-[24px] leading-[24px] md:leading-[28.8px] tracking-[-0.95px]">
                   {useCase.title}
                 </h2>
                 <p className="mt-3 text-primary text-lg leading-[30.6px] font-normal text-left tracking-[-0.4px] flex-grow">
