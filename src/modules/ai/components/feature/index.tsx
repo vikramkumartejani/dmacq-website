@@ -24,14 +24,13 @@ const Feature: React.FC<FeatureProps> = ({
 }) => {
   return (
     <div className="lg:px-[32px] px-[16px] relative min-w-full">
-        <img
-          src={bgImageSrc}
-          draggable='false'
-          alt="background grid"
-          className="absolute w-full h-full object-cover z-[2]"
-        />
+      <img
+        src={bgImageSrc}
+        draggable="false"
+        alt="background grid"
+        className="absolute w-full h-full object-cover z-[2]"
+      />
       <div className="max-w-[1184px] mx-auto">
-
         {heading && (
           <div className="text-center mb-[4px] pt-20 relative z-[3]">
             <h2 className="text-[#75A3FF] text-[18px] font-[600] tracking-[4px]">
@@ -55,7 +54,7 @@ const Feature: React.FC<FeatureProps> = ({
               alt={altText}
               width={512}
               height={456}
-              draggable='false'
+              draggable="false"
               className="lg:w-auto w-[500px] h-[403px] lg:mx-0  mx-auto"
             />
           </div>
