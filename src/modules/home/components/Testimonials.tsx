@@ -131,6 +131,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                       src={testimonial.ratingImage}
                       alt="rating"
                       width={192}
+                      draggable='false'
                       height={32}
                     />
                     <p className="my-6 text-[#192839] text-[16px] md:text-[18px] leading-[27px] font-normal text-left">
@@ -140,6 +141,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                       <Image
                         src={testimonial.profileImage}
                         alt="profile"
+                        draggable='false'
                         width={44}
                         height={44}
                       />

@@ -23,6 +23,7 @@ const OurProducts = () => {
                     src="/assets/dms.svg"
                     alt="forms"
                     width={52}
+                    draggable='false'
                     height={52}
                   />
                   <div>
@@ -50,6 +51,7 @@ const OurProducts = () => {
               src="/assets/product1.svg"
               alt="product1"
               width={660}
+              draggable='false'
               className="flex items-end justify-center"
               height={500}
             />
@@ -62,6 +64,7 @@ const OurProducts = () => {
                   <Image
                     src="/assets/forms.svg"
                     alt="forms"
+                    draggable='false'
                     width={52}
                     height={52}
                   />
@@ -88,6 +91,7 @@ const OurProducts = () => {
                 <Image
                   src="/assets/product2.svg"
                   alt="product"
+                  draggable='false'
                   width={590}
                   height={500}
                   className="lg:block hidden"
@@ -96,6 +100,7 @@ const OurProducts = () => {
                   src="/assets/mobile2.svg"
                   alt="product"
                   width={590}
+                  draggable='false'
                   height={500}
                   className="block lg:hidden"
                 />
@@ -108,6 +113,7 @@ const OurProducts = () => {
                   <Image
                     src="/assets/flow.svg"
                     alt="forms"
+                    draggable='false'
                     width={52}
                     height={52}
                   />
@@ -136,12 +142,14 @@ const OurProducts = () => {
                   alt="product"
                   width={590}
                   height={500}
+                  draggable='false'
                   className="lg:block hidden"
                 />
                 <Image
                   src="/assets/mobile3.svg"
                   alt="product"
                   width={590}
+                  draggable='false'
                   height={500}
                   className="block lg:hidden"
                 />

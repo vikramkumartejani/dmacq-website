@@ -36,14 +36,14 @@ const UnlockingEfficiency = () => {
             </p>
           </div>
           <div>
-            <Image src="/assets/image 70.png" alt="ai-solutions" width={699} height={452} className="bg-image" />
+            <Image src="/assets/image 70.png" draggable='false' alt="ai-solutions" width={699} height={452} className="bg-image" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {aiSolutionsData.map((solution, index) => (
             <div key={index} className="bg-[#192839] rounded-lg p-6 md:p-8">
-              <Image src={solution.imageSrc} alt={solution.imageAlt} width={56} height={56} />
+              <Image src={solution.imageSrc} alt={solution.imageAlt} draggable='false' width={56} height={56} />
               <h1 className="text-[#F1F5FA] text-[18px] md:text-[20px] leading-[28px] font-bold mb-2 mt-5">
                 {solution.title}
               </h1>

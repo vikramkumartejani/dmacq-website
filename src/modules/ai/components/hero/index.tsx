@@ -19,6 +19,7 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <Image
                     src="/assets/ai/stars.png"
+                    draggable='false'
                     alt="hero img"
                     width={40}
                     height={40}
@@ -48,6 +49,7 @@ export default function Hero() {
               <div className="relative w-full h-[400px] md:h-[500px]">
                 <Image
                   src="/assets/ai/ai-hero.png"
+                  draggable='false'
                   alt="AI Document Management Illustration"
                   width={700}
                   height={500}

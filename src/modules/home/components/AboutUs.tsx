@@ -7,7 +7,7 @@ const AboutUs = () => {
     <div className='w-full py-12 lg:py-[120px] lg:px-8 px-4'>
         <div className='w-full max-w-[1184px] mx-auto flex items-center justify-between lg:flex-row flex-col-reverse gap-12'>
             <div>
-              <Image src='/assets/about-us.svg' alt='about-us' width={584} height={396} />
+              <Image src='/assets/about-us.svg' draggable='false' alt='about-us' width={584} height={396} />
             </div>
             <div className='w-full lg:w-[504px] text-left'>
                 <h2 className='text-[#243547] text-[28px] leading-[33.6px] md:text-[40px] md:leading-[48px] font-extrabold tracking-[-0.959px] mb-5'>About us</h2>

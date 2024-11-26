@@ -85,6 +85,7 @@ export default function Articles() {
           >
             <Image
               src="/assets/blogs/left-arrow.svg"
+              draggable='false'
               alt="left-arrow"
               width={40}
               height={40}
@@ -111,6 +112,7 @@ export default function Articles() {
             <Image
               src="/assets/blogs/right-arrow.svg"
               alt="left-arrow"
+              draggable='false'
               width={40}
               height={40}
             />

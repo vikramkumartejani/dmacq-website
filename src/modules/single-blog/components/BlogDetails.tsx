@@ -44,9 +44,9 @@ const BlogDetails = () => {
       <div className="w-full max-w-[1184px] mx-auto">
         <div className="flex items-start justify-between gap-5">
           {/* Sections */}
-          <div className="lg:max-w-[744px] mt-[33px] mb-[64px] md:mb-[140px] flex flex-col gap-12 ">
+          <div className="lg:max-w-[744px] mt-[33px] mb-[64px] md:mb-[140px] flex flex-col ">
             {/* Overview */}
-            <div id="overview">
+            <div id="overview" className="pt-[40px] lg:pt-[72px] ">
               <p className="text-secondary text-[16px] md:text-[18px] leading-[28.8px] md:leading-[32.4px] font-normal">
                 Managing documents efficiently is a core requirement for any HR
                 department. A Human Resources Document Management System (HRDMS)
@@ -65,7 +65,7 @@ const BlogDetails = () => {
             </div>
 
             {/* Archival of Documents */}
-            <div id="archivalofdocuments">
+            <div id="archivalofdocuments" className="pt-[40px] lg:pt-[72px]">
               <h1 className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
                 1. Archival of Documents
               </h1>
@@ -91,6 +91,7 @@ const BlogDetails = () => {
                 src="/assets/blogs/single-blog-post.svg"
                 alt="single-blog-post"
                 width={744}
+                draggable='false'
                 height={366}
                 className="my-12"
               />
@@ -102,8 +103,8 @@ const BlogDetails = () => {
             </div>
 
             {/* Real-time Document Access */}
-            <div  >
-              <h1 id="realtimeDocumentaccess" className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
+            <div id="realtimeDocumentaccess" className="pt-[40px] lg:pt-[72px]">
+              <h1 className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
                 2. Real-time Document Access
               </h1>
               <p className="text-secondary text-[16px] md:text-[18px] leading-[28.8px] md:leading-[32.4px] font-normal">
@@ -131,7 +132,7 @@ const BlogDetails = () => {
             </div>
 
             {/* Document Aggregation */}
-            <div id="documentaggregation">
+            <div id="documentaggregation" className="pt-[40px] lg:pt-[72px]">
               <h1 className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
                 3. Document Aggregation
               </h1>
@@ -160,7 +161,7 @@ const BlogDetails = () => {
             </div>
 
             {/* Conclusion */}
-            <div id="conclusion">
+            <div id="conclusion" className="pt-[40px] lg:pt-[72px]">
               <h1 className="text-dark text-[20px] md:text-[24px] leading-[26px] md:leading-[24px] font-bold mb-2">
                 Conclusion
               </h1>

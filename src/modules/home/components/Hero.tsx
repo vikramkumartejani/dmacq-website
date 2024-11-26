@@ -64,6 +64,7 @@ const Hero = () => {
                       <div className="flex items-center gap-1.5">
                         <Image
                           src={product.icon}
+                          draggable='false'
                           alt={product.name.toLowerCase()}
                           width={32}
                           height={32}
@@ -86,6 +87,7 @@ const Hero = () => {
                         src="/assets/arrow.svg"
                         alt="arrow"
                         width={24}
+                        draggable='false'
                         height={24}
                       />
                     </button>

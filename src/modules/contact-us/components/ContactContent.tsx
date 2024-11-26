@@ -46,6 +46,7 @@ const ContactContent: React.FC = () => {
           <div key={index} className="flex items-start gap-6">
             <Image
               src={feature.icon}
+              draggable='false'
               alt={feature.title}
               width={56}
               height={56}
@@ -72,6 +73,7 @@ const ContactContent: React.FC = () => {
                 key={index}
                 src={brand.src}
                 alt={brand.alt}
+                draggable='false'
                 width={brand.width}
                 height={brand.height}
               />

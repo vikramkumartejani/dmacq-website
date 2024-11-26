@@ -15,12 +15,14 @@ const Awards = () => {
           <Image
             src="/assets/award1.svg"
             alt="award"
+            draggable='false'
             width={173}
             height={184}
           />
           <Image
             src="/assets/award2.svg"
             alt="award"
+            draggable='false'
             width={180}
             height={196}
           />
@@ -28,12 +30,14 @@ const Awards = () => {
             src="/assets/award3.svg"
             alt="award"
             width={350}
+            draggable='false'
             height={172}
             className="lg:block hidden"
           />
           <Image
             src="/assets/award4.svg"
             alt="award"
+            draggable='false'
             width={214}
             height={205}
           />
@@ -41,6 +45,7 @@ const Awards = () => {
             src="/assets/award5.svg"
             alt="award"
             width={182}
+            draggable='false'
             height={184}
           />
         </div>
@@ -50,6 +55,7 @@ const Awards = () => {
             alt="award"
             width={350}
             height={172}
+            draggable='false'
             className="lg:hidden block"
           />
         </div>

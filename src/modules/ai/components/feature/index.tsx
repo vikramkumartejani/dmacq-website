@@ -27,6 +27,7 @@ const Feature: React.FC<FeatureProps> = ({
       <div className="max-w-[1184px] mx-auto">
         <img
           src={bgImageSrc}
+          draggable='false'
           alt="background grid"
           className="absolute w-full h-full object-cover z-[2]"
         />
@@ -54,6 +55,7 @@ const Feature: React.FC<FeatureProps> = ({
               alt={altText}
               width={512}
               height={456}
+              draggable='false'
               className="lg:w-auto w-[500px] h-[403px] lg:mx-0  mx-auto"
             />
           </div>

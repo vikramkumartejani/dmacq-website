@@ -89,6 +89,7 @@ const Logo: React.FC = () => {
           alt={logo.alt}
           width={logo.width}
           height={logo.height}
+          draggable='false'
         />
       )}
     </div>

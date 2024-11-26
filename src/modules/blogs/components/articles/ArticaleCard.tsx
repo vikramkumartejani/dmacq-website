@@ -28,6 +28,7 @@ export function ArticleCard({
       <div className="aspect-[16/9] relative overflow-hidden">
         <Image
           src={image}
+          draggable='false'
           alt={title}
           fill
           className="contain"
