@@ -37,7 +37,7 @@ const menuData = {
 const SolutionsMenuOpen: React.FC<SolutionsMenuOpenProps> = ({ closeMenu }) => {
   return (
     <div
-      className="fixed left-0 right-0 top-[72px] z-50 bg-white w-[1006px] mx-auto"
+      className="fixed left-0 right-0 top-[72px] z-50 bg-white w-[1006px] mx-auto rounded-b-lg"
       style={{ boxShadow: "0px 10px 13.3px 0px #3C3C3C1F" }}
       onClick={(e) => e.stopPropagation()}
     >

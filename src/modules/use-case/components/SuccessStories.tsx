@@ -141,7 +141,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
               </div>
             </div>
           </div>
-          <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded--lg">
+          <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded-r-lg">
             <div className="p-5 lg:p-10">
               {currentStory.stats.map((stat, index) => (
                 <div key={index} className="py-3">
