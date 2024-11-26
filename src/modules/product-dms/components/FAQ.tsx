@@ -1,45 +1,54 @@
-'use client'
-import Image from 'next/image';
-import React, { useState } from 'react';
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
 
 interface FAQItem {
   question: string;
-  answer?: string; // Optional since some questions don't have answers in the initial state
+  answer?: string;
 }
 
 const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
 
   const faqItems: FAQItem[] = [
     {
-      question: 'What is a Document Management System (DMS)?',
+      question: "What is a Document Management System (DMS)?",
       answer:
-        'A Document Management System (DMS) is software designed to store, manage, and track digital documents, making it easier to organize, access, and secure your files.',
+        "A Document Management System (DMS) is software designed to store, manage, and track digital documents, making it easier to organize, access, and secure your files.",
     },
     {
-      question: 'How does DMS improve document organization?',
-      answer: 'DMS improves document organization by categorizing, tagging, and enabling advanced search capabilities.',
+      question: "How does DMS improve document organization?",
+      answer:
+        "DMS improves document organization by categorizing, tagging, and enabling advanced search capabilities.",
     },
     {
-      question: 'Is my data secure in the DMS?',
-      answer: 'Yes, DMS systems employ encryption and role-based access controls to ensure data security.',
+      question: "Is my data secure in the DMS?",
+      answer:
+        "Yes, DMS systems employ encryption and role-based access controls to ensure data security.",
     },
     {
-      question: 'Can I access DMS from any device?',
-      answer: 'Yes, most modern DMS solutions are cloud-based and can be accessed from any device with an internet connection.',
+      question: "Can I access DMS from any device?",
+      answer:
+        "Yes, most modern DMS solutions are cloud-based and can be accessed from any device with an internet connection.",
     },
     {
-      question: 'What file types are supported by DMS?',
-      answer: 'DMS supports various file types, including PDFs, Word documents, Excel spreadsheets, images, and more.',
+      question: "What file types are supported by DMS?",
+      answer:
+        "DMS supports various file types, including PDFs, Word documents, Excel spreadsheets, images, and more.",
     },
     {
-      question: 'Does DMS have search functionality?',
-      answer: 'Yes, DMS includes advanced search functionality to quickly locate documents based on metadata, tags, or content.',
+      question: "Does DMS have search functionality?",
+      answer:
+        "Yes, DMS includes advanced search functionality to quickly locate documents based on metadata, tags, or content.",
     },
   ];
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndexes((prevState) =>
+      prevState.includes(index)
+        ? prevState.filter((item) => item !== index)
+        : [...prevState, index]
+    );
   };
 
   return (
@@ -55,7 +64,10 @@ const FAQ: React.FC = () => {
         {/* FAQ Section */}
         <div className="mt-6">
           {faqItems.map((item, index) => (
-            <div key={index} className="px-2 py-6 md:p-8 border-b border-[#6C849D2E]">
+            <div
+              key={index}
+              className="px-2 py-6 md:p-8 border-b border-[#6C849D2E] transition-all duration-500 ease-in-out"
+            >
               <div
                 className="flex justify-between items-start cursor-pointer gap-2"
                 onClick={() => toggleFAQ(index)}
@@ -64,15 +76,19 @@ const FAQ: React.FC = () => {
                   {item.question}
                 </h2>
                 <Image
-                  src={`/assets/dmacq/${openIndex === index ? 'close' : 'open'}.svg`}
-                  alt={openIndex === index ? 'close' : 'open'}
+                  src={`/assets/dmacq/${
+                    openIndexes.includes(index) ? "close" : "open"
+                  }.svg`}
+                  alt={openIndexes.includes(index) ? "close" : "open"}
                   width={24}
                   height={24}
                 />
               </div>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-[200px]' : 'max-h-0'
+                className={`overflow-hidden transition-all duration-500 ease-out transform ${
+                  openIndexes.includes(index)
+                    ? "max-h-[500px] opacity-100 translate-y-0"
+                    : "max-h-0 opacity-0 translate-y-4"
                 }`}
               >
                 {item.answer && (

@@ -20,7 +20,7 @@ const features = [
     title: "Real-Time Collaboration",
     description:
       "Collaborate in real-time with team members using integrated tools and version control.",
-    image: "/assets/usecase/real-time-collaboration.svg",
+    image: "/assets/usecase/advanced-analytics.svg",
     points: [
       "OCR Search converts printed or handwritten.",
       "Track document revisions with automatic version.",
@@ -33,7 +33,7 @@ const features = [
     title: "Automated Workflows",
     description:
       "Streamline processes with automation to improve efficiency and reduce manual tasks.",
-    image: "/assets/usecase/real-time-collaboration.svg",
+    image: "/assets/usecase/advanced-analytics.svg",
     points: [
       "OCR Search converts printed or handwritten.",
       "Track document revisions with automatic version.",
@@ -61,12 +61,12 @@ const InnovativeFeatures = () => {
                 feature.reverse ? "lg:flex-row-reverse" : ""
               }`}
             >
-              <div className="bg-[#F1F5FA] rounded-lg px-10 md:px-[71px] py-[28px] md:py-[47.5px] w-full lg:max-w-[544px] flex items-center justify-center">
+              <div className="">
                 <Image
                   src={feature.image}
                   alt={feature.title}
-                  width={402}
-                  height={380}
+                  width={544}
+                  height={475}
                 />
               </div>
               <div className="lg:max-w-[544px]">

@@ -1,7 +1,6 @@
 "use client";
-
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Stat {
   percentage: string;
@@ -16,7 +15,6 @@ interface Story {
   name: string;
   designation: string;
   stats: Stat[];
-  // storyLink: string;
 }
 
 interface SuccessStoriesProps {
@@ -40,7 +38,6 @@ const successStories: Story[] = [
       { percentage: "25%", description: "Increase Productivity" },
       { percentage: "9%", description: "Conversion Rate Increase" },
     ],
-    // storyLink: "Read Bajaj Story",
   },
   {
     id: 2,
@@ -55,7 +52,6 @@ const successStories: Story[] = [
       { percentage: "20%", description: "Reduction in Processing Time" },
       { percentage: "12%", description: "Revenue Growth" },
     ],
-    // storyLink: "Read Hero Story",
   },
   {
     id: 3,
@@ -63,14 +59,13 @@ const successStories: Story[] = [
     logo: "/assets/usecase/bajaj.svg",
     testimonial:
       "With Routable's tools, Mahindra has optimized its payment workflow, drastically reducing errors and improving vendor relationships.",
-    name: "Vikram Singh",
+    name: "Singh",
     designation: "Chief Operations Officer",
     stats: [
       { percentage: "90%", description: "Operational Efficiency" },
       { percentage: "30%", description: "Error Reduction" },
       { percentage: "15%", description: "Improved Vendor Retention" },
     ],
-    // storyLink: "Read Mahindra Story",
   },
 ];
 
@@ -81,16 +76,37 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
   mainTitleColor,
 }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [fadeIn, setFadeIn] = useState<boolean>(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeIn(false);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
+        setFadeIn(true);
+      }, 300);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
+    setFadeIn(false);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
+      setFadeIn(true);
+    }, 300);
   };
 
   const handlePrevious = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + successStories.length) % successStories.length
-    );
+    setFadeIn(false);
+    setTimeout(() => {
+      setCurrentIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + successStories.length) % successStories.length
+      );
+      setFadeIn(true);
+    }, 300);
   };
 
   const currentStory = successStories[currentIndex];
@@ -115,7 +131,11 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
             {customTitle}
           </h1>
 
-          <div className="mt-16 bg-white rounded-lg flex justify-between min-h-full">
+          <div
+            className={`mt-16 bg-white rounded-lg flex justify-between min-h-full transition-all duration-500 ease-in-out ${
+              fadeIn ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <div className="px-5 py-6 lg:p-10 h-full">
               <Image
                 src={currentStory.logo}
@@ -137,9 +157,6 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
                     {currentStory.designation} • {currentStory.company}
                   </h3>
                 </div>
-                {/* <button className="text-[#2243B6] text-[16px] leading-[21.79px] font-semibold">
-                  {currentStory.storyLink}
-                </button> */}
               </div>
             </div>
             <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded-r-lg">
