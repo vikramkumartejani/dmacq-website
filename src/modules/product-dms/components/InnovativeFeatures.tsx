@@ -3,7 +3,7 @@ import React from "react";
 
 const InnovativeFeatures = () => {
   return (
-    <div className="w-full py-16 md:pt-[96px] xl:pt-[120px]">
+    <div className="w-full pt-16 md:pt-[96px] xl:pt-[120px]">
       <div className="lg:px-8 px-4">
         <h3 className="text-center text-[#2243B6] text-[16px] leading-[19.2px] tracking-[4px] font-bold uppercase mb-2">
           Innovative Features
