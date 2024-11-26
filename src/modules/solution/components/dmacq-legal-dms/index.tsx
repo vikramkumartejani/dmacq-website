@@ -24,7 +24,7 @@ const DMACQLegalDMS: React.FC = () => {
       image: "/assets/solution/staff-collaboration.svg",
       title: "Staff Collaboration",
       description:
-        "The DMS software provides a centralized location for all contracts, making it easy to store, access, and manage them.",
+        "The DMS software provides a centralized location for all contracts, making it easy to store, access, and manage them. The DMS software provides a centralized location for all contracts, making it easy to store, access, and manage them.",
       link: "/staff-collaboration",
       alt: "Staff Collaboration",
     },
@@ -39,7 +39,7 @@ const DMACQLegalDMS: React.FC = () => {
   ];
 
   return (
-    <div className="w-full md:px-8 px-4 pt-[64px] pb-[48px] md:py-[94px] bg-mint-cream">
+    <div className="w-full md:px-8 px-4 pt-[64px] pb-[48px] md:py-[94px] bg-mint-cream ">
       <div className="text-center max-w-[1184px] mx-auto w-full">
         <h3 className="text-green-600 text-base md:text-lg leading-[19.2px] md:leading-[21.6px] font-semibold md:font-bold tracking-[4px]">
           USE CASES
@@ -47,43 +47,49 @@ const DMACQLegalDMS: React.FC = () => {
         <h1 className="text-dark text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43.2px] font-extrabold tracking-[-0.96px] mt-2">
           dMACQ Legal DMS
         </h1>
-
-        <div className="mt-12 md:mt-16 flex items-center gap-6 overflow-x-auto scrollbar-none">
-          {useCases.map((useCase, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg transition-shadow duration-300 hover:shadow-lg min-w-[312px]"
-              style={{ boxShadow: "0px 4px 22.1px 0px #2243B61A" }}
-            >
-              <Image
-                src={useCase.image}
-                draggable="false"
-                alt={useCase.alt}
-                width={378}
-                height={224}
-                className="rounded-t-lg md:w-[378px] w-[312px] h-[224]"
-              />
-              <div className="p-6 text-left">
-                <h2 className="text-dark font-bold md:font-extrabold text-[20px] md:text-[24px] leading-[24px] md:leading-[28.8px] tracking-[-0.95px]">
-                  {useCase.title}
-                </h2>
-                <p className="mt-3 text-primary text-lg leading-[30.6px] font-normal tracking-[-0.4px]">
-                  {useCase.description}
-                </p>
-                <Link href={useCase.link}>
-                  <button className="mt-2 h-[48px] w-full flex items-center gap-2 text-green-700 text-base font-semibold leading-[21.79px]">
-                    Know more
-                    <Image
-                      src="/assets/solution/icons/arrow-right.svg"
-                      alt="arrow"
-                      width={24}
-                      height={24}
-                    />
-                  </button>
-                </Link>
+        <div className="overflow-x-auto scrollbar-none ">
+          <div className="mt-12 md:mt-16 grid grid-cols-3 h-full gap-6">
+            {useCases.map((useCase, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg min-w-[312px]"
+                style={{ boxShadow: "0px 4px 22.1px 0px #2243B61A" }}
+              >
+                <Image
+                  src={useCase.image}
+                  draggable="false"
+                  alt={useCase.alt}
+                  width={378}
+                  height={224}
+                  className="rounded-t-lg md:w-[378px] w-[312px] h-[224]"
+                />
+                <div className="p-6 text-left flex flex-col justify-between items-start">
+                  <div>
+                    <h2 className="text-dark font-bold md:font-extrabold text-[20px] md:text-[24px] leading-[24px] md:leading-[28.8px] tracking-[-0.95px]">
+                      {useCase.title}
+                    </h2>
+                    <p className="mt-3 text-primary text-lg leading-[30.6px] font-normal tracking-[-0.4px]">
+                      {useCase.description}
+                    </p>
+                  </div>
+                  <Link
+                    href={useCase.link}
+                    className="max-h-full flex items-end justify-end w-full"
+                  >
+                    <button className="mt-2 h-[48px] w-full flex items-center gap-2 text-green-700 text-base font-semibold leading-[21.79px]">
+                      Know more
+                      <Image
+                        src="/assets/solution/icons/arrow-right.svg"
+                        alt="arrow"
+                        width={24}
+                        height={24}
+                      />
+                    </button>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

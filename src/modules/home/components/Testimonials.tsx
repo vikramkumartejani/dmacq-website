@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import Image from 'next/image';
+import React, { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import Image from "next/image";
 
 interface Testimonial {
   ratingImage: string;
@@ -25,53 +25,95 @@ interface TestimonialsProps {
 }
 
 const Testimonials: React.FC<TestimonialsProps> = ({
-  titleColor = '#CD3609',
-  headingColor = '#192839',
-  bgColor = '#FFDED4',
-  titleText = 'Testimonials',
-  headingText = 'Hear What Our Clients Have to Say',
+  titleColor = "#CD3609",
+  headingColor = "#192839",
+  bgColor = "#FFDED4",
+  titleText = "Testimonials",
+  headingText = "Hear What Our Clients Have to Say",
 }) => {
   const testimonials: Testimonial[] = [
     {
-      ratingImage: '/assets/rating.svg',
-      text: '1 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
-      profileImage: '/assets/profile.svg',
-      name: 'Tushar P.',
-      position: 'Managing Director',
+      ratingImage: "/assets/rating.svg",
+      text: "1 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Tushar P.",
+      position: "Managing Director",
     },
     {
-      ratingImage: '/assets/rating.svg',
-      text: '2 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
-      profileImage: '/assets/profile.svg',
-      name: 'Sharad G.',
-      position: 'Operation Manager • Bajaj Auto',
+      ratingImage: "/assets/rating.svg",
+      text: "2 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
     },
     {
-      ratingImage: '/assets/rating.svg',
-      text: '3 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
-      profileImage: '/assets/profile.svg',
-      name: 'Sharad G.',
-      position: 'Operation Manager • Bajaj Auto',
+      ratingImage: "/assets/rating.svg",
+      text: "3 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
     },
     {
-      ratingImage: '/assets/rating.svg',
-      text: '4 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
-      profileImage: '/assets/profile.svg',
-      name: 'Sharad G.',
-      position: 'Operation Manager • Bajaj Auto',
+      ratingImage: "/assets/rating.svg",
+      text: "4 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
     },
     {
-      ratingImage: '/assets/rating.svg',
-      text: '5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.',
-      profileImage: '/assets/profile.svg',
-      name: 'Sharad G.',
-      position: 'Operation Manager • Bajaj Auto',
+      ratingImage: "/assets/rating.svg",
+      text: "5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
+    },
+    {
+      ratingImage: "/assets/rating.svg",
+      text: "5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
+    },
+    {
+      ratingImage: "/assets/rating.svg",
+      text: "5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
+    },
+    {
+      ratingImage: "/assets/rating.svg",
+      text: "5 dMACQ DMS offers essential DMS features and more. Its unique architecture and design include user-configurable options, making it user-friendly and scalable. I particularly appreciated the master data management and contract management modules.",
+      profileImage: "/assets/profile.svg",
+      name: "Sharad G.",
+      position: "Operation Manager • Bajaj Auto",
     },
   ];
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const swiperRef = useRef<any>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(currentSlide);
+    }
+  }, [currentSlide]);
+
   return (
-    <div className="w-full overflow-hidden lg:pl-8 px-4 lg:pr-0" style={{ backgroundColor: bgColor }}>
-      <div className="w-full max-w-[1300px] mx-auto lg:ml-auto py-[64px] lg:py-[120px] text-center">
+    <div
+      className="w-full overflow-hidden lg:pl-8 px-4"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="w-full max-w-[1184px] mx-auto lg:ml-auto py-[64px] lg:py-[120px] text-center">
         <h3
           className="text-base md:text-lg leading-[19.2px] md:leading-[21.6px] font-bold tracking-[4px] uppercase"
           style={{ color: titleColor }}
@@ -87,13 +129,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({
 
         <div className="mt-16">
           <Swiper
+            ref={swiperRef}
             spaceBetween={30}
             slidesPerView={3}
             loop={true}
-            autoplay={{
-              delay: 1000, 
-              disableOnInteraction: true,  
-            }}
             className="testimonial-slider"
             breakpoints={{
               320: {
@@ -110,12 +149,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({
               },
               1024: {
                 slidesPerView: 2,
-                centeredSlides: true,
                 spaceBetween: 30,
               },
               1184: {
                 slidesPerView: 3,
-                centeredSlides: true,
                 spaceBetween: 30,
               },
             }}
@@ -125,7 +162,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                 <div className="overflow-hidden">
                   <div
                     className="bg-white rounded-2xl p-8"
-                    style={{ boxShadow: '0px 4px 4.7px 0px #7E22221A' }}
+                    style={{ boxShadow: "0px 4px 4.7px 0px #7E22221A" }}
                   >
                     <Image
                       src={testimonial.ratingImage}
