@@ -50,8 +50,8 @@ const logoData: LogoData[] = [
     path: "/product-dms",
     logoSrc: "/assets/dms-logo.svg",
     alt: "AI Logo",
-    width: 102.22,
-    height: 32,
+    width: 115,
+    height: 36,
   },
   {
     path: "/",

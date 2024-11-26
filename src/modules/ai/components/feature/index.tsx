@@ -23,14 +23,14 @@ const Feature: React.FC<FeatureProps> = ({
   heading = false,
 }) => {
   return (
-    <div className="lg:px-[32px] px-[16px] relative">
-      <div className="max-w-[1184px] mx-auto">
+    <div className="lg:px-[32px] px-[16px] relative min-w-full">
         <img
           src={bgImageSrc}
           draggable='false'
           alt="background grid"
           className="absolute w-full h-full object-cover z-[2]"
         />
+      <div className="max-w-[1184px] mx-auto">
 
         {heading && (
           <div className="text-center mb-[4px] pt-20 relative z-[3]">

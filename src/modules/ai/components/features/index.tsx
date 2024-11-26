@@ -2,7 +2,8 @@ import Feature from "../feature";
 
 export default function Features() {
   return (
-    <section className="min-h-screen bg-grid-white/[0.02] relative flex items-center justify-center overflow-hidden">
+    <section className="min-h-screen w-full bg-grid-white/[0.02] relative flex items-center justify-center overflow-hidden">
+      
       <div className="">
         <Feature
           title="Auto-Classification"

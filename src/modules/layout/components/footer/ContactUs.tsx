@@ -15,9 +15,10 @@ const ContactUs = () => {
           <button className="mt-12 w-full md:w-[133px] h-[40px] bg-[#FFFFFF33] lg:bg-white lg:text-[#2243B6] text-white rounded-lg text-base font-semibold">
             Contact Us
           </button>
-          <button className="lg:hidden block mt-4 w-full md:w-[133px] h-[40px] bg-white text-[#2243B6] rounded-lg text-base font-semibold">
+          
+          {/* <button className="lg:hidden block mt-4 w-full md:w-[133px] h-[40px] bg-white text-[#2243B6] rounded-lg text-base font-semibold">
           Get Started for Free
-          </button>
+          </button> */}
         </div>
 
         <div className="lg:block hidden">

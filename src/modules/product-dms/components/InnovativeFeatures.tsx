@@ -39,7 +39,7 @@ const InnovativeFeatures = () => {
       </div>
 
       <div className="bg-[#F8FAFC] w-full lg:px-8 px-4">
-        <div className="max-w-[1184px] mx-auto w-full py-12 md:py-16 xl:py-[96px] flex items-center mlg:flex-row flex-col justify-between gap-5">
+        <div className="max-w-[1184px] mx-auto w-full py-12 md:py-16 xl:py-[96px] flex items-center mlg:flex-row flex-col-reverse justify-between gap-5">
           <div className="max-w-[532px]">
             <h1 className="text-[#243547] text-[24px] md:text-[32px] xl:text-[40px] leading-[28.8px] md:leading-[38.4px] xl:leading-[48px] font-extrabold tracking-[-0.96px] mb-4">
               Store Information Securely
@@ -89,7 +89,7 @@ const InnovativeFeatures = () => {
       </div>
 
       <div className="bg-[#F8FAFC] w-full lg:px-8 px-4">
-        <div className="max-w-[1184px] mx-auto w-full  py-12 md:py-16 xl:py-[96px] flex  mlg:flex-row flex-col items-center justify-between gap-5">
+        <div className="max-w-[1184px] mx-auto w-full  py-12 md:py-16 xl:py-[96px] flex  mlg:flex-row flex-col-reverse items-center justify-between gap-5">
           <div className="max-w-[532px]">
             <h1 className="text-[#243547] text-[24px] md:text-[32px] xl:text-[40px] leading-[28.8px] md:leading-[38.4px] xl:leading-[48px] font-extrabold tracking-[-0.96px] mb-4">
               Customize Your Experience{" "}

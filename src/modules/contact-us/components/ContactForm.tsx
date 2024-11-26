@@ -23,6 +23,21 @@ const ContactForm = () => {
         </div>
 
         <div className='w-full mb-6'>
+            <label className='block text-[#243547] text-[16px] font-medium mb-2'>Dropdown<span className='text-[#E6334E]'>*</span></label>
+            <select className='border border-[#B1C1D2] w-full text-[#243547] h-[40px] px-4 rounded-md outline-none appearance-none'>
+                <option>HR</option>
+                <option>Operations</option>
+                <option>Finance</option>
+                <option>Legal</option>
+                <option>IT</option>
+                <option>Management</option>
+                <option>Sales</option>
+                <option>Marketing</option>
+                <option>Marketing</option>
+            </select>
+        </div>
+
+        <div className='w-full mb-6'>
             <label className='block text-[#243547] text-[16px] font-medium mb-2'>How can our team help you?</label>
             <textarea className='w-full h-[96px] py-2 border border-[#B1C1D2] outline-none rounded-md px-4 text-[#243547] placeholder:text-[#90A5BB] resize-none text-[16px]' placeholder="Tell us your needs, and well respond promptly"/>
         </div>

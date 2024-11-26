@@ -77,7 +77,7 @@ const DesktopMenuLinks: React.FC = () => {
         <div className="mt-9 flex justify-center lg:justify-start items-center gap-3">
           {socialLinks.map((link, index) => (
             <Link key={index} href={link.href}>
-              <Image src={link.src} alt={link.alt} width={28.68} height={28} />
+              <Image src={link.src} alt={link.alt} width={40} height={40} className='min-w-[40px] min-h-[40px]' />
             </Link>
           ))}
         </div>

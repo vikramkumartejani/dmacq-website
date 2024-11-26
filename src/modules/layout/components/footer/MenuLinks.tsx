@@ -102,7 +102,7 @@ const MenuLinks: React.FC = () => {
         <div className="mt-9 flex gap-4">
           {socialLinks.map((link, index) => (
             <Link key={index} href={link.href}>
-              <Image src={link.src} alt={link.alt} width={24} height={24} />
+              <Image src={link.src} alt={link.alt} width={40} height={40} />
             </Link>
           ))}
         </div>

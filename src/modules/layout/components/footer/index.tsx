@@ -21,7 +21,7 @@ const Footer = () => {
   
 
   const isSolutionPage = pathname === "/solution";
-  const isContactUsPage = pathname === "/contact-us" || pathname === "/ai" || pathname === "/usecase";
+  const isContactUsPage = pathname === "/contact-us" || pathname === "/ai" || pathname === "/usecase" || pathname === "/product-dms";
   const isHomePage = pathname === "/";
   const isBlogPage = pathname === "/blog" || pathname === "/single-blog";
 

@@ -117,6 +117,31 @@ const MenuItems = () => {
         );
       })}
 
+      <div
+        className="relative px-[11px] h-[40px] flex items-center"
+        ref={productMenuRef}
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsProductMenuOpen(!isProductMenuOpen);
+          }}
+          className={`text-base leading-[21.79px] flex items-center gap-2 ${
+            pathname.startsWith("/product")
+              ? "text-[#F2400A] font-black"
+              : "text-gray-900 font-normal hover:text-[#F2400A]"
+          }`}
+        >
+          Product
+          <FaChevronDown
+            className={`transition-transform duration-200   mt-1 ${
+              isProductMenuOpen ? "rotate-180 " : " "
+            }`}
+          />
+        </button>
+        {isProductMenuOpen && <ProductMenuOpen products={products} />}
+      </div>
+
       {/* Solutions Menu */}
       <div
         className="relative px-[11px] h-[40px] flex items-center"
@@ -135,7 +160,7 @@ const MenuItems = () => {
         >
           Solutions
           <FaChevronDown
-            className={`transition-transform duration-200 text-[#40566D] mt-1${
+            className={`transition-transform duration-200   mt-1${
               isSolutionsMenuOpen ? "rotate-180 " : ""
             }`}
           />
@@ -163,7 +188,7 @@ const MenuItems = () => {
         >
           Resources
           <FaChevronDown
-            className={`transition-transform duration-200 text-[#40566D] mt-1 ${
+            className={`transition-transform duration-200   mt-1 ${
               isResourcesMenuOpen ? "rotate-180" : ""
             }`}
           />
@@ -172,30 +197,6 @@ const MenuItems = () => {
       </div>
 
       {/* Product Menu */}
-      <div
-        className="relative px-[11px] h-[40px] flex items-center"
-        ref={productMenuRef}
-      >
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsProductMenuOpen(!isProductMenuOpen);
-          }}
-          className={`text-base leading-[21.79px] flex items-center gap-2 ${
-            pathname.startsWith("/product")
-              ? "text-[#F2400A] font-black"
-              : "text-gray-900 font-normal hover:text-[#F2400A]"
-          }`}
-        >
-          Product
-          <FaChevronDown
-            className={`transition-transform duration-200 text-[#40566D] mt-1 ${
-              isProductMenuOpen ? "rotate-180 " : " "
-            }`}
-          />
-        </button>
-        {isProductMenuOpen && <ProductMenuOpen products={products} />}
-      </div>
     </div>
   );
 };

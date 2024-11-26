@@ -58,31 +58,23 @@ const OurProducts = () => {
           </div>
 
           <div className="mt-4 lg:mt-6 flex items-center justify-between lg:flex-row flex-col gap-4 lg:gap-6">
-            <div className="w-full bg-[#F7F4FF] border border-[#5D4AD42E] rounded-lg pt-6 lg:pt-10">
+            <div className="w-full bg-[#FFF5F5] border border-[#D44A4A2E] rounded-lg pt-6 lg:pt-10">
               <div className="px-6 lg:px-10">
                 <div className="flex items-center gap-1.5">
                   <Image
-                    src="/assets/forms.svg"
+                    src="/assets/forms-logo.svg"
                     alt="forms"
                     draggable='false'
-                    width={52}
+                    width={199.88}
                     height={52}
                   />
-                  <div>
-                    <h4 className="text-[#2F4256] text-[16px] font-normal leading-[18px]">
-                      dMACQ
-                    </h4>
-                    <h1 className="text-[#192839] text-[32px] font-black leading-[30px] tracking-[-0.81px]">
-                      FORMS +
-                    </h1>
-                  </div>
                 </div>
                 <p className="mt-4 text-[#2F4256] text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] font-medium">
                   Forms+ streamlines data collection, minimizes errors, and
                   automates complex processes to significantly enhance overall
                   efficiency.
                 </p>
-                <button className="mt-6 bg-[#5D4AD4] w-full md:w-[117px] h-[40px] rounded-lg text-white text-[16px] leading-[21px] font-semibold">
+                <button className="mt-6 bg-[#D44A4A] w-full md:w-[117px] h-[40px] rounded-lg text-white text-[16px] leading-[21px] font-semibold">
                   Contact Us
                 </button>
               </div>

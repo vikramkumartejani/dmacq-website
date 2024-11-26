@@ -16,7 +16,7 @@ interface Story {
   name: string;
   designation: string;
   stats: Stat[];
-  storyLink: string;
+  // storyLink: string;
 }
 
 interface SuccessStoriesProps {
@@ -40,7 +40,7 @@ const successStories: Story[] = [
       { percentage: "25%", description: "Increase Productivity" },
       { percentage: "9%", description: "Conversion Rate Increase" },
     ],
-    storyLink: "Read Bajaj Story",
+    // storyLink: "Read Bajaj Story",
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ const successStories: Story[] = [
       { percentage: "20%", description: "Reduction in Processing Time" },
       { percentage: "12%", description: "Revenue Growth" },
     ],
-    storyLink: "Read Hero Story",
+    // storyLink: "Read Hero Story",
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const successStories: Story[] = [
       { percentage: "30%", description: "Error Reduction" },
       { percentage: "15%", description: "Improved Vendor Retention" },
     ],
-    storyLink: "Read Mahindra Story",
+    // storyLink: "Read Mahindra Story",
   },
 ];
 
@@ -137,12 +137,12 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
                     {currentStory.designation} • {currentStory.company}
                   </h3>
                 </div>
-                <button className="text-[#2243B6] text-[16px] leading-[21.79px] font-semibold">
+                {/* <button className="text-[#2243B6] text-[16px] leading-[21.79px] font-semibold">
                   {currentStory.storyLink}
-                </button>
+                </button> */}
               </div>
             </div>
-            <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden">
+            <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded-r-lg">
               <div className="p-5 lg:p-10">
                 {currentStory.stats.map((stat, index) => (
                   <div key={index} className="py-3">
@@ -155,7 +155,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
                   </div>
                 ))}
               </div>
-              <div className="border-t border-[#305EFF3D] flex items-center justify-center py-10 gap-4">
+              <div className="border-t border-[#305EFF3D] flex items-start justify-start py-10 gap-4 pl-10">
                 <button onClick={handlePrevious}>
                   <Image
                     src="assets/usecase/arrow-left.svg"

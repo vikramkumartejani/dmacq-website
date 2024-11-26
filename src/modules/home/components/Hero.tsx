@@ -5,17 +5,19 @@ import Partner from "./Partner";
 
 const products = [
   {
-    icon: "/assets/dms.svg",
+    icon: "/assets/dmacq-dms-logo.svg",
     name: "DMS +",
     description: "Most Innovative Document Management Software",
+    width: "102px",
+    height: "32px"
   },
   {
-    icon: "/assets/forms.svg",
+    icon: "/assets/dmacq-form-logo.svg",
     name: "FORMS +",
     description: "#1 Form Builder for Businesses",
   },
   {
-    icon: "/assets/flow.svg",
+    icon: "/assets/dmacq-flow.svg",
     name: "FLOW +",
     description: "Most Flexible yet Powerful Workflow Management",
   },
@@ -66,17 +68,10 @@ const Hero = () => {
                           src={product.icon}
                           draggable='false'
                           alt={product.name.toLowerCase()}
-                          width={32}
+                          width={102}
                           height={32}
                         />
-                        <div>
-                          <h4 className="text-[#2F4256] text-[9.83px] font-normal leading-[11px]">
-                            dMACQ
-                          </h4>
-                          <h1 className="text-[#192839] text-[20px] font-black leading-[18px] tracking-[-0.5px]">
-                            {product.name}
-                          </h1>
-                        </div>
+                       
                       </div>
                       <p className="mt-3 text-[#2F4256] text-[12px] leading-[16.34px] font-normal line-clamp-1">
                         {product.description}

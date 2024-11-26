@@ -10,16 +10,16 @@ const Hero = () => {
       image: "/assets/dmacq/innovative-approach.svg",
     },
     {
-      title: "Innovative Approach",
+      title: "Innovative Design",
       description:
-        "We have created cutting-edge features like Master Metadata capabilities, DocTypes & DocProperties, setting new standards for efficiency and user experience",
-      image: "/assets/dmacq/innovative-approach.svg",
+        "Our features are designed for the end-user, offering intuitive navigation and seamless integration, with the flexibility to customize to fit specific needs",
+      image: "/assets/dmacq/innovative-design.svg",
     },
     {
-      title: "Innovative Approach",
+      title: "Innovative AI",
       description:
-        "We have created cutting-edge features like Master Metadata capabilities, DocTypes & DocProperties, setting new standards for efficiency and user experience",
-      image: "/assets/dmacq/innovative-approach.svg",
+        "Our AI-powered features offer advanced retrieval, OCR and data extraction, designed to adapt and elevate the user experience.",
+      image: "/assets/dmacq/innovative-ai.svg",
     },
   ];
 
