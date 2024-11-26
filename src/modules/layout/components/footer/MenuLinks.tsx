@@ -2,15 +2,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";  
 
-const socialLinks = [
+interface SocialLink {
+  href: string;
+  src: string;
+  alt: string;
+}
+
+interface MenuLink {
+  href: string;
+  label: string;
+}
+
+interface MenuData {
+  title: string;
+  links: MenuLink[];
+}
+
+const socialLinks: SocialLink[] = [
   { href: "/", src: "/assets/linkedin.svg", alt: "LinkedIn" },
   { href: "/", src: "/assets/instagram.svg", alt: "Instagram" },
   { href: "/", src: "/assets/facebook.svg", alt: "Facebook" },
   { href: "/", src: "/assets/twitter.svg", alt: "Twitter" },
 ];
 
-const menuData = [
+const menuData: MenuData[] = [
   {
     title: "Products",
     links: [
@@ -40,15 +57,30 @@ const menuData = [
   },
 ];
 
-const MenuLinks = () => {
+type ColorMapping = Record<string, string>;
+
+const colorMapping: ColorMapping = {
+  '/': 'text-[#FC5523]',   
+  '/solution': 'text-[#7ABFA8]',  
+  '/blog': 'text-[#75A3FF]',  
+  '/product-dms': 'text-[#75A3FF]',  
+  '/ai': 'text-[#75A3FF]', 
+  '/contact-us': 'text-[#75A3FF]', 
+  '/usecase': 'text-[#75A3FF]', 
+};
+
+const MenuLinks: React.FC = () => {
   const [openIndices, setOpenIndices] = useState<number[]>([]);
+  const pathname = usePathname();  
+
+  const titleColor = colorMapping[pathname] || 'text-primary-400'; 
 
   const toggleMenu = (index: number) => {
     setOpenIndices(
       (prevIndices) =>
         prevIndices.includes(index)
-          ? prevIndices.filter((i) => i !== index)  
-          : [...prevIndices, index] 
+          ? prevIndices.filter((i) => i !== index)
+          : [...prevIndices, index]
     );
   };
 
@@ -76,13 +108,12 @@ const MenuLinks = () => {
         </div>
       </div>
 
-      {/* Accordion Menu */}
       <div className="w-full">
         {menuData.map((menu, index) => (
           <div key={index} className="mb-3">
             <button
               onClick={() => toggleMenu(index)}
-              className="flex py-1.5 justify-between mb-3 items-center w-full text-lg font-semibold text-primary-400 hover:text-primary-400 transition-colors"
+              className={`flex py-1.5 justify-between mb-3 items-center w-full text-lg font-semibold ${titleColor} hover:text-primary-400 transition-colors`}
             >
               {menu.title}
               <span
