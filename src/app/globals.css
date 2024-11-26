@@ -18,9 +18,9 @@
 
 .scrollbar-none {
   scrollbar-width: none;
-} 
+}
 
-.bg-image { 
+.bg-image {
   background-repeat: no-repeat;
   backdrop-filter: blur(1px);
   object-position: center;
@@ -43,6 +43,31 @@
 
 @media (max-width: 640px) {
   .partner-marquee {
-    animation: marquee 10s linear infinite; 
+    animation: marquee 10s linear infinite;
+  }
+}
+
+.award-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.award-marquee {
+  display: flex;
+  animation: marqueeone 20s linear infinite;
+}
+
+@keyframes marqueeone {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .award-marquee {
+    animation: marqueeone 10s linear infinite;
   }
 }

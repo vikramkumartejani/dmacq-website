@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
@@ -59,7 +60,7 @@ const successStories: Story[] = [
     logo: "/assets/usecase/bajaj.svg",
     testimonial:
       "With Routable's tools, Mahindra has optimized its payment workflow, drastically reducing errors and improving vendor relationships.",
-    name: "Singh",
+    name: "Vikram Singh",
     designation: "Chief Operations Officer",
     stats: [
       { percentage: "90%", description: "Operational Efficiency" },
@@ -76,37 +77,24 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
   mainTitleColor,
 }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [fadeIn, setFadeIn] = useState<boolean>(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeIn(false);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
-        setFadeIn(true);
-      }, 300);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
     }, 10000);
 
     return () => clearInterval(interval);
   }, []);
 
   const handleNext = () => {
-    setFadeIn(false);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
-      setFadeIn(true);
-    }, 300);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
   };
 
   const handlePrevious = () => {
-    setFadeIn(false);
-    setTimeout(() => {
-      setCurrentIndex(
-        (prevIndex) =>
-          (prevIndex - 1 + successStories.length) % successStories.length
-      );
-      setFadeIn(true);
-    }, 300);
+    setCurrentIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + successStories.length) % successStories.length
+    );
   };
 
   const currentStory = successStories[currentIndex];
@@ -117,80 +105,90 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({
       style={{ backgroundColor: bgColor }}
     >
       <div className="w-full max-w-[1184px] mx-auto">
-        <div>
-          <h4
-            style={{ color: mainTitleColor }}
-            className="mb-2 text-[16px] leading-[19.2px] tracking-[4px] font-semibold text-center uppercase"
-          >
-            Success Stories
-          </h4>
-          <h1
-            style={{ color: textColor }}
-            className="text-center text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43px] tracking-[-0.96px] font-extrabold"
-          >
-            {customTitle}
-          </h1>
+        <h4
+          style={{ color: mainTitleColor }}
+          className="mb-2 text-[16px] leading-[19.2px] tracking-[4px] font-semibold text-center uppercase"
+        >
+          Success Stories
+        </h4>
+        <h1
+          style={{ color: textColor }}
+          className="text-center text-[28px] md:text-[36px] leading-[33.6px] md:leading-[43px] tracking-[-0.96px] font-extrabold"
+        >
+          {customTitle}
+        </h1>
 
-          <div
-            className={`mt-16 bg-white rounded-lg flex justify-between min-h-full transition-all duration-500 ease-in-out ${
-              fadeIn ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="px-5 py-6 lg:p-10 h-full">
-              <Image
-                src={currentStory.logo}
-                alt={currentStory.company}
-                width={200.17}
-                height={94}
-                className="w-[140px] md:w-[200px]"
-              />
-              <p className="my-9 text-[#2F4256] text-[20px] md:text-[28px] lg:text-[32px] leading-[27.24px] md:leading-[38.14px] lg:leading-[43px] tracking-[-0.96px] font-semibold max-w-[719px]">
-                {currentStory.testimonial}
-              </p>
-
-              <div className="flex items-start md:items-center md:justify-between lg:max-w-[633px] md:flex-row flex-col gap-[28px]">
-                <div>
-                  <h3 className="text-[#2F4256] text-[18px] leading-[21.6px] font-semibold">
-                    {currentStory.name}
+        <div className="mt-16 bg-white rounded-lg flex justify-between min-h-full">
+          <div className="px-5 py-6 lg:p-10 h-full">
+            <Image
+              src={currentStory.logo}
+              alt={currentStory.company}
+              width={200.17}
+              height={94}
+              className="w-[140px] md:w-[200px]"
+            />
+            <p className="my-9 text-[#2F4256] text-[20px] md:text-[28px] lg:text-[32px] leading-[27.24px] md:leading-[38.14px] lg:leading-[43px] tracking-[-0.96px] font-semibold max-w-[719px]">
+              {currentStory.testimonial}
+            </p>
+            <div className="flex items-start md:items-center md:justify-between lg:max-w-[633px] md:flex-row flex-col gap-[28px]">
+              <div>
+                <h3 className="text-[#2F4256] text-[18px] leading-[21.6px] font-semibold">
+                  {currentStory.name}
+                </h3>
+                <h3 className="text-[#58728D] text-[16px] leading-[19.2px] font-normal mt-1">
+                  {currentStory.designation} • {currentStory.company}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded--lg">
+            <div className="p-5 lg:p-10">
+              {currentStory.stats.map((stat, index) => (
+                <div key={index} className="py-3">
+                  <h3 className="text-[#243547] text-[40px] leading-[54.48px] tracking-[-0.96px] font-extrabold mb-1">
+                    {stat.percentage}
                   </h3>
-                  <h3 className="text-[#58728D] text-[16px] leading-[19.2px] font-normal mt-1">
-                    {currentStory.designation} • {currentStory.company}
-                  </h3>
+                  <p className="text-[#243547] text-[16px] leading-[18.4px] tracking-[-0.24px] font-medium">
+                    {stat.description}
+                  </p>
                 </div>
-              </div>
+              ))}
             </div>
-            <div className="bg-[#F5F8FF] border-l border-[#305EFF3D] w-[385px] min-h-full md:block hidden rounded-r-lg">
-              <div className="p-5 lg:p-10">
-                {currentStory.stats.map((stat, index) => (
-                  <div key={index} className="py-3">
-                    <h3 className="text-[#243547] text-[40px] leading-[54.48px] tracking-[-0.96px] font-extrabold mb-1">
-                      {stat.percentage}
-                    </h3>
-                    <p className="text-[#243547] text-[16px] leading-[18.4px] tracking-[-0.24px] font-medium">
-                      {stat.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div className="border-t border-[#305EFF3D] flex items-start justify-start py-10 gap-4 pl-10">
-                <button onClick={handlePrevious}>
-                  <Image
-                    src="assets/usecase/arrow-left.svg"
-                    alt="arrow-left"
-                    width={48}
-                    height={48}
-                  />
-                </button>
-                <button onClick={handleNext}>
-                  <Image
-                    src="assets/usecase/arrow-right.svg"
-                    alt="arrow-right"
-                    width={48}
-                    height={48}
-                  />
-                </button>
-              </div>
+            <div className="border-t border-[#305EFF3D] flex items-start justify-start py-10 gap-4 pl-10">
+              <button onClick={handlePrevious}>
+                <Image
+                  src="assets/usecase/arrow-left.svg"
+                  alt="arrow-left"
+                  width={48}
+                  height={48}
+                />
+              </button>
+              <button onClick={handleNext}>
+                <Image
+                  src="assets/usecase/arrow-right.svg"
+                  alt="arrow-right"
+                  width={48}
+                  height={48}
+                />
+              </button>
             </div>
+          </div>
+        </div>
+
+        {/* Dot Navigation */}
+        <div className="mt-4 lg:hidden flex items-center justify-center pt-5">
+          <div className="flex items-center gap-1.5">
+            {successStories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`${
+                  currentIndex === index
+                    ? "bg-[#2950DA] w-[24px] h-[8px] rounded-full"
+                    : "bg-[#B4CDFD] w-[8px] h-[8px] rounded-full"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>

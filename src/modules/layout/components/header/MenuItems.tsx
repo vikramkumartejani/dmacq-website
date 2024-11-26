@@ -48,16 +48,49 @@ const products: Product[] = [
   },
 ];
 
-// Color mapping for active and inactive states for each route
-const routeColors: { [key: string]: { active: string; inactive: string; hover: string } } = {
-  "/": { active: "text-[#F2400A]", inactive: "text-gray-900", hover: "hover:text-[#F2400A]" },
-  "/product-dms": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
-  "/solution": { active: "text-green-600", inactive: "text-gray-900", hover: "hover:text-green-600" },
-  "/ai": { active: "text-[#75A3FF]", inactive: "text-white", hover: "hover:text-[#75A3FF]" },
-  "/single-blog": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#75A3FF]" },
-  "/blog": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#75A3FF]" },
-  "/contact-us": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
-  "/usecase": { active: "text-[#2243B6]", inactive: "text-gray-900", hover: "hover:text-[#2243B6]" },
+const routeColors: {
+  [key: string]: { active: string; inactive: string; hover: string };
+} = {
+  "/": {
+    active: "text-[#F2400A]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#F2400A]",
+  },
+  "/product-dms": {
+    active: "text-[#2243B6]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#2243B6]",
+  },
+  "/solution": {
+    active: "text-green-600",
+    inactive: "text-gray-900",
+    hover: "hover:text-green-600",
+  },
+  "/ai": {
+    active: "text-[#75A3FF]",
+    inactive: "text-white",
+    hover: "hover:text-[#75A3FF]",
+  },
+  "/single-blog": {
+    active: "text-[#2243B6]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#75A3FF]",
+  },
+  "/blog": {
+    active: "text-[#2243B6]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#75A3FF]",
+  },
+  "/contact-us": {
+    active: "text-[#2243B6]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#2243B6]",
+  },
+  "/usecase": {
+    active: "text-[#2243B6]",
+    inactive: "text-gray-900",
+    hover: "hover:text-[#2243B6]",
+  },
 };
 
 const MenuItems: React.FC = () => {
@@ -135,19 +168,18 @@ const MenuItems: React.FC = () => {
         );
       })}
       <div className="relative px-[11px] h-[40px] flex items-center">
-  <Link
-    href="/ai"
-    className={`text-[16px] leading-[21.79px] flex items-center font-medium gap-2 ${
-      pathname === "/ai" || pathname.startsWith("/ai") // Check if the current path is `/ai`
-        ? `${currentColors.active} font-semibold`
-        : `${currentColors.inactive} font-medium ${currentColors.hover}`
-    }`}
-  >
-    <Image src="/assets/star.svg" alt="star" width={24} height={24} />
-    dMACQ AI
-  </Link>
-</div>
-
+        <Link
+          href="/ai"
+          className={`text-[16px] leading-[21.79px] flex items-center font-medium gap-2 ${
+            pathname === "/ai" || pathname.startsWith("/ai")
+              ? `${currentColors.active} font-semibold`
+              : `${currentColors.inactive} font-medium ${currentColors.hover}`
+          }`}
+        >
+          <Image src="/assets/star.svg" alt="star" width={24} height={24} />
+          dMACQ AI
+        </Link>
+      </div>
 
       {/* Product Menu */}
       <div
@@ -160,7 +192,7 @@ const MenuItems: React.FC = () => {
             setIsProductMenuOpen(!isProductMenuOpen);
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
-            pathname.startsWith("/product")
+            pathname.startsWith("/product") || isProductMenuOpen
               ? `${currentColors.active} font-semibold`
               : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}
@@ -168,7 +200,7 @@ const MenuItems: React.FC = () => {
           Product
           <FaChevronDown
             className={`transition-transform duration-200 text-[16px] mt-1 ${
-              isProductMenuOpen ? "rotate-180 " : ""
+              isProductMenuOpen ? "rotate-180" : ""
             }`}
           />
         </button>
@@ -186,7 +218,7 @@ const MenuItems: React.FC = () => {
             setIsSolutionsMenuOpen(!isSolutionsMenuOpen);
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
-            pathname.startsWith("/solution")
+            pathname.startsWith("/solution") || isSolutionsMenuOpen
               ? `${currentColors.active} font-semibold`
               : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}
@@ -194,7 +226,7 @@ const MenuItems: React.FC = () => {
           Solutions
           <FaChevronDown
             className={`transition-transform duration-200 text-[16px] mt-1 ${
-              isSolutionsMenuOpen ? "rotate-180 " : ""
+              isSolutionsMenuOpen ? "rotate-180" : ""
             }`}
           />
         </button>
@@ -214,7 +246,7 @@ const MenuItems: React.FC = () => {
             setIsResourcesMenuOpen(!isResourcesMenuOpen);
           }}
           className={`text-base leading-[21.79px] flex items-center gap-2 ${
-            pathname.startsWith("/resources")
+            pathname.startsWith("/resources") || isResourcesMenuOpen
               ? `${currentColors.active} font-semibold`
               : `${currentColors.inactive} font-medium ${currentColors.hover}`
           }`}

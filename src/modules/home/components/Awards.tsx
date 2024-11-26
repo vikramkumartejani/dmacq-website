@@ -1,7 +1,27 @@
 import Image from "next/image";
 import React from "react";
 
-const Awards = () => {
+interface Logo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+const Awards: React.FC = () => {
+  const logos: Logo[] = [
+    { src: "/assets/award1.svg", alt: "award 1", width: 173, height: 184 },
+    { src: "/assets/award2.svg", alt: "award 2", width: 180, height: 196 },
+    { src: "/assets/award3.svg", alt: "award 3", width: 350, height: 172 },
+    { src: "/assets/award4.svg", alt: "award 4", width: 214, height: 205 },
+    { src: "/assets/award5.svg", alt: "award 5", width: 182, height: 184 },
+    { src: "/assets/award1.svg", alt: "award 1", width: 173, height: 184 },
+    { src: "/assets/award2.svg", alt: "award 2", width: 180, height: 196 },
+    { src: "/assets/award3.svg", alt: "award 3", width: 350, height: 172 },
+    { src: "/assets/award4.svg", alt: "award 4", width: 214, height: 205 },
+    { src: "/assets/award5.svg", alt: "award 5", width: 182, height: 184 },
+  ];
+
   return (
     <div className="bg-[#0C1927] w-full py-16 lg:py-24">
       <div className="w-full max-w-[1184px] mx-auto">
@@ -11,53 +31,30 @@ const Awards = () => {
         <h1 className="text-[#FFFFFFE5] text-[28px] md:text-[36px] leading-[48px] font-bold text-center">
           Testament to our Excellence
         </h1>
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-5 items-center justify-items-center gap-0 md:gap-5 flex-wrap lg:flex-nowrap overflow-x-auto">
-          <Image
-            src="/assets/award1.svg"
-            alt="award"
-            draggable='false'
-            width={173}
-            height={184}
-          />
-          <Image
-            src="/assets/award2.svg"
-            alt="award"
-            draggable='false'
-            width={180}
-            height={196}
-          />
-          <Image
-            src="/assets/award3.svg"
-            alt="award"
-            width={350}
-            draggable='false'
-            height={172}
-            className="lg:block hidden"
-          />
-          <Image
-            src="/assets/award4.svg"
-            alt="award"
-            draggable='false'
-            width={214}
-            height={205}
-          />
-          <Image
-            src="/assets/award5.svg"
-            alt="award"
-            width={182}
-            draggable='false'
-            height={184}
-          />
-        </div>
-        <div className="w-full max-w-full mx-auto flex items-center justify-center">
-          <Image
-            src="/assets/award3.svg"
-            alt="award"
-            width={350}
-            height={172}
-            draggable='false'
-            className="lg:hidden block"
-          />
+
+        <div className="mt-6 award-marquee-wrapper overflow-hidden">
+          <div className="award-marquee">
+            {logos.map((logo, index) => (
+              <Image
+                key={index}
+                src={logo.src}
+                alt={logo.alt}
+                draggable="false"
+                width={logo.width}
+                height={logo.height}
+              />
+            ))}
+            {logos.map((logo, index) => (
+              <Image
+                key={`duplicate-${index}`}
+                src={logo.src}
+                alt={logo.alt}
+                draggable="false"
+                width={logo.width}
+                height={logo.height}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

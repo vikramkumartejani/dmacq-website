@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LuDot } from "react-icons/lu";
 
 type Slides = {
@@ -13,14 +13,14 @@ type Slides = {
   image: string;
 };
 
-const CustomerSuccessslides = () => {
+const CustomerSuccessSlides = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slides: Slides[] = [
     {
       tags: ["Product Update", "WorkFlows"],
       title:
-        "Robotic Process Automation (RPA) for GST Input Credit Claims: dMACQ Introduces GST Analytics Package",
+        "1 Robotic Process Automation (RPA) for GST Input Credit Claims: ",
       subtitle:
         "Streamlining Tax Compliance and Maximizing Efficiency with Automated Solutions for Faster, Accurate, and Hassle-Free GST Input Credit Claims",
       author: "Kunal Deshpande",
@@ -31,7 +31,7 @@ const CustomerSuccessslides = () => {
     {
       tags: ["Product Update", "WorkFlows"],
       title:
-        "Robotic Process Automation (RPA) for GST Input Credit Claims: dMACQ Introduces GST Analytics Package",
+        "2 Robotic Process Automation (RPA) for GST Input Credit Claims: dMACQ Introduces GST Analytics Package",
       subtitle:
         "Streamlining Tax Compliance and Maximizing Efficiency with Automated Solutions for Faster, Accurate, and Hassle-Free GST Input Credit Claims",
       author: "Kunal Deshpande",
@@ -42,7 +42,7 @@ const CustomerSuccessslides = () => {
     {
       tags: ["Product Update", "WorkFlows"],
       title:
-        "Robotic Process Automation (RPA) for GST Input Credit Claims: dMACQ Introduces GST Analytics Package",
+        "3 Robotic Process Automation (RPA) for GST Input Credit Claims:  ",
       subtitle:
         "Streamlining Tax Compliance and Maximizing Efficiency with Automated Solutions for Faster, Accurate, and Hassle-Free GST Input Credit Claims",
       author: "Kunal Deshpande",
@@ -52,16 +52,25 @@ const CustomerSuccessslides = () => {
     },
   ];
 
-
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
+
+  // Auto slide functionality: Change slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 5000); // 5000 ms = 5 seconds
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array ensures this runs once when the component mounts
 
   return (
     <div className="w-full mt-10 lg:block hidden">
       <div className="w-full max-w-[1184px] mx-auto text-center">
         <div className="text-left">
-          <div className="border border-primary-300 bg-white rounded-[16px] p-5 md:p-12 flex items-center flex-col lg:flex-row gap-4 md:gap-[72px]">
+          <div className="border border-primary-300 bg-white rounded-[16px] p-5 md:p-12 flex items-start flex-col lg:flex-row gap-4 md:gap-[72px]">
             <div>
               <div className="lg:max-w-[623px] w-full mx-auto pb-6 border-b border-primary-400">
                 <div className="flex items-center gap-2">
@@ -108,6 +117,7 @@ const CustomerSuccessslides = () => {
             />
           </div>
 
+          {/* Dots Navigation */}
           <div className="mt-4 flex items-center justify-center py-5">
             <div className="flex items-center gap-1.5">
               {slides.map((_, index) => (
@@ -129,4 +139,4 @@ const CustomerSuccessslides = () => {
   );
 };
 
-export default CustomerSuccessslides;
+export default CustomerSuccessSlides;
