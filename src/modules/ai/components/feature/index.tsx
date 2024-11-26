@@ -30,7 +30,7 @@ const Feature: React.FC<FeatureProps> = ({
         alt="background grid"
         className="absolute w-full h-full object-cover z-[2]"
       />
-      <div className="max-w-[1184px] mx-auto">
+      <div className="max-w-[1216px] mx-auto px-4">
         {heading && (
           <div className="text-center mb-[4px] pt-20 relative z-[3]">
             <h2 className="text-[#75A3FF] text-[18px] font-[600] tracking-[4px]">
