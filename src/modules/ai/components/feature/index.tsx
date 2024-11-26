@@ -23,7 +23,7 @@ const Feature: React.FC<FeatureProps> = ({
   heading = false,
 }) => {
   return (
-    <div className="lg:px-[32px] px-[16px] relative min-w-full">
+    <div className=" relative min-w-full">
       <img
         src={bgImageSrc}
         draggable="false"
@@ -55,7 +55,7 @@ const Feature: React.FC<FeatureProps> = ({
               width={512}
               height={456}
               draggable="false"
-              className="lg:w-auto w-[500px] h-[403px] lg:mx-0  mx-auto"
+              className="lg:w-auto w-[500px] h-[403px] lg:mx-0 mx-auto"
             />
           </div>
 

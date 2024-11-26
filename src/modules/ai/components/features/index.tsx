@@ -3,7 +3,7 @@ import Feature from "../feature";
 export default function Features() {
   return (
     <section className="min-h-screen w-full bg-grid-white/[0.02] relative flex items-center justify-center overflow-hidden">
-      <div className="">
+      <div className="w-full max-w-full">
         <Feature
           title="Auto-Classification"
           description="AI can automatically classify documents based on their content, eliminating the need for manual sorting. This feature scans the document's text, metadata."
