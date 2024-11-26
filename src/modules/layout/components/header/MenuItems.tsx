@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { FaChevronDown } from "react-icons/fa"; // Importing the down arrow icon
 import ProductMenuOpen from "./ProductMenuOpen";
 import ResourcesMenuOpen from "./ResourcesMenuOpen";
+import SolutionsMenuOpen from "./SolutionsMenuOpen";
 
 type MenuItem = {
   label: string;
@@ -49,16 +51,49 @@ const MenuItems = () => {
   const pathname = usePathname();
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isResourcesMenuOpen, setIsResourcesMenuOpen] = useState(false);
+  const [isSolutionsMenuOpen, setIsSolutionsMenuOpen] = useState(false);
+
+  const resourcesMenuRef = useRef<HTMLDivElement>(null);
+  const productMenuRef = useRef<HTMLDivElement>(null);
+  const solutionsMenuRef = useRef<HTMLDivElement>(null);
 
   const menuItems: MenuItem[] = [
     { label: "Home", href: "/" },
     { label: "dMACQ AI", href: "/dmacq-ai" },
-    { label: "Solutions", href: "/solution" },
   ];
 
   const handleNavigation = (href: string) => {
     router.push(href);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      resourcesMenuRef.current &&
+      !resourcesMenuRef.current.contains(event.target as Node)
+    ) {
+      setIsResourcesMenuOpen(false);
+    }
+    if (
+      productMenuRef.current &&
+      !productMenuRef.current.contains(event.target as Node)
+    ) {
+      setIsProductMenuOpen(false);
+    }
+    if (
+      solutionsMenuRef.current &&
+      !solutionsMenuRef.current.contains(event.target as Node)
+    ) {
+      setIsSolutionsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex items-center gap-4">
@@ -82,44 +117,82 @@ const MenuItems = () => {
         );
       })}
 
+      {/* Solutions Menu */}
       <div
         className="relative px-[11px] h-[40px] flex items-center"
-        onMouseEnter={() => setIsResourcesMenuOpen(true)}
-        onMouseLeave={() => setIsResourcesMenuOpen(false)}
+        ref={solutionsMenuRef}
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsSolutionsMenuOpen(!isSolutionsMenuOpen);
+          }}
+          className={`text-base leading-[21.79px] flex items-center gap-2 ${
+            pathname.startsWith("/solution")
+              ? "text-[#F2400A] font-black"
+              : "text-gray-900 font-normal hover:text-[#F2400A]"
+          }`}
+        >
+          Solutions
+          <FaChevronDown
+            className={`transition-transform duration-200 text-[#40566D] mt-1${
+              isSolutionsMenuOpen ? "rotate-180 " : ""
+            }`}
+          />
+        </button>
+        {isSolutionsMenuOpen && (
+          <SolutionsMenuOpen closeMenu={() => setIsSolutionsMenuOpen(false)} />
+        )}
+      </div>
+
+      {/* Resources Menu */}
+      <div
+        className="relative px-[11px] h-[40px] flex items-center"
+        ref={resourcesMenuRef}
       >
         <button
           onClick={(e) => {
             e.stopPropagation();
             setIsResourcesMenuOpen(!isResourcesMenuOpen);
           }}
-          className={`text-base leading-[21.79px] ${
+          className={`text-base leading-[21.79px] flex items-center gap-2 ${
             pathname.startsWith("/resources")
               ? "text-[#F2400A] font-black"
               : "text-gray-900 font-normal hover:text-[#F2400A]"
           }`}
         >
           Resources
+          <FaChevronDown
+            className={`transition-transform duration-200 text-[#40566D] mt-1 ${
+              isResourcesMenuOpen ? "rotate-180" : ""
+            }`}
+          />
         </button>
         {isResourcesMenuOpen && <ResourcesMenuOpen />}
       </div>
 
+      {/* Product Menu */}
       <div
         className="relative px-[11px] h-[40px] flex items-center"
-        onMouseEnter={() => setIsProductMenuOpen(true)}
-        onMouseLeave={() => setIsProductMenuOpen(false)}
+        ref={productMenuRef}
       >
         <button
           onClick={(e) => {
             e.stopPropagation();
             setIsProductMenuOpen(!isProductMenuOpen);
           }}
-          className={`text-base leading-[21.79px] ${
+          className={`text-base leading-[21.79px] flex items-center gap-2 ${
             pathname.startsWith("/product")
               ? "text-[#F2400A] font-black"
               : "text-gray-900 font-normal hover:text-[#F2400A]"
           }`}
         >
           Product
+          <FaChevronDown
+            className={`transition-transform duration-200 text-[#40566D] mt-1 ${
+              isProductMenuOpen ? "rotate-180 " : " "
+            }`}
+          />
         </button>
         {isProductMenuOpen && <ProductMenuOpen products={products} />}
       </div>
