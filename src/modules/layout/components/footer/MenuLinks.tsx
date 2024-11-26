@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { usePathname } from "next/navigation";  
+import { usePathname } from "next/navigation";
+import { IoIosArrowDown } from "react-icons/io";
 
 interface SocialLink {
   href: string;
@@ -25,6 +26,13 @@ const socialLinks: SocialLink[] = [
   { href: "/", src: "/assets/instagram.svg", alt: "Instagram" },
   { href: "/", src: "/assets/facebook.svg", alt: "Facebook" },
   { href: "/", src: "/assets/twitter.svg", alt: "Twitter" },
+];
+
+const socialLinks1: SocialLink[] = [
+  { href: "/", src: "/assets/dmacq/linkedin.svg", alt: "LinkedIn" },
+  { href: "/", src: "/assets/dmacq/instagram.svg", alt: "Instagram" },
+  { href: "/", src: "/assets/dmacq/facebook.svg", alt: "Facebook" },
+  { href: "/", src: "/assets/dmacq/twitter.svg", alt: "Twitter" },
 ];
 
 const menuData: MenuData[] = [
@@ -60,47 +68,48 @@ const menuData: MenuData[] = [
 type ColorMapping = Record<string, string>;
 
 const colorMapping: ColorMapping = {
-  '/': 'text-[#FC5523]',   
-  '/solution': 'text-[#7ABFA8]',  
-  '/blog': 'text-[#75A3FF]',  
-  '/product-dms': 'text-[#75A3FF]',  
-  '/ai': 'text-[#75A3FF]', 
-  '/contact-us': 'text-[#75A3FF]', 
-  '/usecase': 'text-[#75A3FF]', 
+  "/": "text-[#FC5523]",
+  "/solution": "text-[#7ABFA8]",
+  "/blog": "text-[#75A3FF]",
+  "/product-dms": "text-[#75A3FF]",
+  "/ai": "text-[#75A3FF]",
+  "/contact-us": "text-[#75A3FF]",
+  "/usecase": "text-[#75A3FF]",
 };
 
 const MenuLinks: React.FC = () => {
   const [openIndices, setOpenIndices] = useState<number[]>([]);
-  const pathname = usePathname();  
+  const pathname = usePathname();
 
-  const titleColor = colorMapping[pathname] || 'text-primary-400'; 
+  const titleColor = colorMapping[pathname] || "text-primary-400";
+
+  // Determine which social links to show
+  const activeSocialLinks = pathname === "/" ? socialLinks1 : socialLinks;
 
   const toggleMenu = (index: number) => {
-    setOpenIndices(
-      (prevIndices) =>
-        prevIndices.includes(index)
-          ? prevIndices.filter((i) => i !== index)
-          : [...prevIndices, index]
+    setOpenIndices((prevIndices) =>
+      prevIndices.includes(index)
+        ? prevIndices.filter((i) => i !== index)
+        : [...prevIndices, index]
     );
   };
 
   return (
     <div className="pb-[48px] md:pb-[64px] lg:hidden flex flex-col gap-[48px] items-start">
       {/* Logo and Address */}
-      <div className=" w-full">
+      <div className="w-full">
         <Image
           src="/assets/footer-logo.svg"
           alt="footer-logo"
           width={152}
           height={36}
-          className=""
         />
         <p className="text-white-600 text-[14px] font-normal leading-[22px] pt-5 lg:max-w-[254px]">
           Regd. & Corp. Office: C 208, Neelkanth Business Park, Nathani Road,
           Vidyavihar West, Mumbai, Maharashtra 400086, India.
         </p>
         <div className="mt-9 flex gap-4">
-          {socialLinks.map((link, index) => (
+          {activeSocialLinks.map((link, index) => (
             <Link key={index} href={link.href}>
               <Image src={link.src} alt={link.alt} width={40} height={40} />
             </Link>
@@ -113,7 +122,7 @@ const MenuLinks: React.FC = () => {
           <div key={index} className="mb-3">
             <button
               onClick={() => toggleMenu(index)}
-              className={`flex py-1.5 justify-between mb-3 items-center w-full text-lg font-semibold ${titleColor} hover:text-primary-400 transition-colors`}
+              className={`flex py-1.5 justify-between mb-3 items-center w-full text-lg font-semibold ${titleColor} transition-colors`}
             >
               {menu.title}
               <span
@@ -121,12 +130,7 @@ const MenuLinks: React.FC = () => {
                   openIndices.includes(index) ? "rotate-180" : ""
                 }`}
               >
-                <Image
-                  src="/assets/icons/down.svg"
-                  alt="arrow"
-                  width={24}
-                  height={24}
-                />
+                <IoIosArrowDown />
               </span>
             </button>
             {openIndices.includes(index) && (

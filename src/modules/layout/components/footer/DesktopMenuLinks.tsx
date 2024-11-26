@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { usePathname } from 'next/navigation'
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { usePathname } from 'next/navigation';
 
 interface MenuLink {
-  href: string
-  label: string
+  href: string;
+  label: string;
 }
 
 interface MenuData {
-  title: string
-  links: MenuLink[]
+  title: string;
+  links: MenuLink[];
 }
 
 const socialLinks = [
@@ -18,6 +18,13 @@ const socialLinks = [
   { href: '/', src: '/assets/instagram.svg', alt: 'Instagram' },
   { href: '/', src: '/assets/facebook.svg', alt: 'Facebook' },
   { href: '/', src: '/assets/twitter.svg', alt: 'Twitter' },
+];
+
+const socialLinks1 = [
+  { href: '/', src: '/assets/dmacq/linkedin.svg', alt: 'LinkedIn' },
+  { href: '/', src: '/assets/dmacq/instagram.svg', alt: 'Instagram' },
+  { href: '/', src: '/assets/dmacq/facebook.svg', alt: 'Facebook' },
+  { href: '/', src: '/assets/dmacq/twitter.svg', alt: 'Twitter' },
 ];
 
 const menuData: MenuData[] = [
@@ -63,9 +70,11 @@ const colorMapping: ColorMapping = {
 };
 
 const DesktopMenuLinks: React.FC = () => {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
-  const titleColor = colorMapping[pathname] || 'text-primary-300';  
+  const currentSocialLinks = pathname === '/' ? socialLinks1 : socialLinks;
+
+  const titleColor = colorMapping[pathname] || 'text-primary-300';
 
   return (
     <div className="pb-[64px] hidden lg:flex gap-[48px] lg:gap-[120px] items-start">
@@ -75,20 +84,19 @@ const DesktopMenuLinks: React.FC = () => {
           Regd. & Corp. Office: C 208, Neelkanth Business Park, Nathani Road, Vidyavihar West, Mumbai, Maharashtra 400086, India.
         </p>
         <div className="mt-9 flex justify-center lg:justify-start items-center gap-3">
-          {socialLinks.map((link, index) => (
+          {currentSocialLinks.map((link, index) => (
             <Link key={index} href={link.href}>
-              <Image src={link.src} alt={link.alt} width={40} height={40} className='min-w-[40px] min-h-[40px]' />
+              <Image src={link.src} alt={link.alt} width={40} height={40} className="min-w-[40px] min-h-[40px]" />
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Menu Items */}
       <div className="flex items-start justify-between gap-5 w-full">
         {menuData.map((menu, index) => (
           <div key={index} className="flex flex-col gap-1 text-center lg:text-left">
             <h2
-              className={`${titleColor} text-base font-medium leading-[22px] mb-[11px]`} 
+              className={`${titleColor} text-base font-medium leading-[22px] mb-[11px]`}
             >
               {menu.title}
             </h2>
