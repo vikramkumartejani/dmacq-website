@@ -6,7 +6,7 @@ const ContactUs = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us" || pathname === "/usecase" || pathname === "/product-dms";
+  const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us" || pathname === "/usecase" || pathname === "/product-dms" || pathname === "/ai";
   const isHomePage = pathname === "/";
 
   const bgColor = isBlogPage ? "bg-[#2243B6]" : isHomePage ? "bg-[#FC5523]" : "bg-green-600" ;
