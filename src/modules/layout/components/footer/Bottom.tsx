@@ -3,7 +3,7 @@ import React from "react";
 
 const Bottom = () => {
   return (
-    <div className="border-t border-primary-400">
+    <div className="border-t border-primary-400 ">
       <div className="flex md:items-center justify-between py-8 max-w-[1184px] w-full mx-auto gap-4 md:flex-row flex-col">
         <h2 className=" text-white-700 text-[14px] leading-[22px] font-medium">
           © Copyright 2024, All Rights Reserved{" "}
