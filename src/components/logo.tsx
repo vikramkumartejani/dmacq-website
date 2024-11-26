@@ -2,47 +2,93 @@ import Image from "next/image";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const Logo = () => {
-  const pathname = usePathname();  
-  const router = useRouter();  
+interface LogoData {
+  path: string;   
+  logoSrc: string;  
+  alt: string;      
+  width: number;   
+  height: number;   
+}
 
-  const isBlogPage = pathname === "/blog" || pathname === "/single-blog" || pathname === "/contact-us";
-  const isHomePage = pathname === "/";
-  const isAiPage = pathname === "/ai";
+const logoData: LogoData[] = [
+  {
+    path: "/blog",
+    logoSrc: "/assets/blogs/blog-logo.svg",
+    alt: "Blog Logo",
+    width: 103,
+    height: 32,
+  },
+  {
+    path: "/usecase",
+    logoSrc: "/assets/dms-logo.svg",
+    alt: "Blog Logo",
+    width: 103,
+    height: 32,
+  },
+  {
+    path: "/single-blog",
+    logoSrc: "/assets/blogs/blog-logo.svg",
+    alt: "Blog Logo",
+    width: 103,
+    height: 32,
+  },
+  {
+    path: "/contact-us",
+    logoSrc: "/assets/blogs/blog-logo.svg",
+    alt: "Blog Logo",
+    width: 103,
+    height: 32,
+  },
+  {
+    path: "/ai",
+    logoSrc: "/assets/ai-logo.svg",
+    alt: "AI Logo",
+    width: 102.22,
+    height: 32,
+  },
+  {
+    path: "/product-dms",
+    logoSrc: "/assets/dms-logo.svg",
+    alt: "AI Logo",
+    width: 102.22,
+    height: 32,
+  },
+  {
+    path: "/",
+    logoSrc: "/assets/home-logo.svg",
+    alt: "Home Logo",
+    width: 142.29,
+    height: 36,
+  },
+  {
+    path: "default",
+    logoSrc: "/assets/logo.svg",
+    alt: "Default Logo",
+    width: 142.29,
+    height: 36,
+  },
+];
+
+const Logo: React.FC = () => {
+  const pathname = usePathname(); 
+  const router = useRouter(); 
+
+  const logo = logoData.find(
+    (item) => item.path === pathname || item.path === "default"
+  );
 
   const handleNavigation = () => {
-    router.push("/");  
+    router.push("/"); 
   };
 
   return (
     <div className="cursor-pointer" onClick={handleNavigation}>
-      {isBlogPage ? (
+      {logo && (
         <Image
-          src="/assets/blogs/blog-logo.svg"
-          alt="Blog Logo"
-          width={103}
-          height={32}
-        />
-      ) : isHomePage ? (
-        <Image
-          src="/assets/home-logo.svg"
-          alt="Home Logo"
-          width={142.29}
-          height={36}
-        />
-      ) : isAiPage ? (
-        <Image
-          src="/assets/ai-logo.svg"
-          alt="Home Logo"
-          width={102.22}
-          height={32}
-        />
-      ) : (
-        <Image
-          src="/assets/logo.svg"
-          alt="Solution Logo"
-          width={142.29}
-          height={36}
+          src={logo.logoSrc}
+          alt={logo.alt}
+          width={logo.width}
+          height={logo.height}
         />
       )}
     </div>
