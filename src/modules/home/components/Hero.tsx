@@ -44,7 +44,12 @@ const Hero: React.FC = () => {
             <div className="lg:max-w-[639px] w-full">
               <h1 className="text-[32px] md:text-[48px] leading-[38px] md:leading-[57.6px] max-w-[639px] font-black tracking-[-0.95px]">
                 Unlock Efficiency, Powered by{" "}
-                <span className="text-[#FC5523]">Innovation</span>
+                <div className="relative inline-block">
+                  <div className="bg-[#FFDED4] absolute inset-x-0 bottom-1 h-[34px]"></div>
+                  <h1 className="relative text-[#FC5523] text-[32px] md:text-[48px] leading-[38px] md:leading-[57.6px] px-2">
+                    Innovation
+                  </h1>
+                </div>
               </h1>
               <p className="mb-10 text-[#2F4256] max-w-[639px] text-[16px] md:text-[18px] leading-[25px] md:leading-[28.8px] font-normal mt-4 md:mt-3">
                 Transform your operations with a cutting-edge software suite
